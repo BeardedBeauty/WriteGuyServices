@@ -1,0 +1,18 @@
+.logBlock {
+    display: block;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 500px;
+    width: 400px;
+    background-color: #969696;
+    border-radius: 6px;
+    border-bottom: #464646;
+    float: left;
+}
+
+@media screen and (max-width: 999px) {/*and (min-width: 64){*/
+    .logBlock {
+        display: none;
+    }
+  }

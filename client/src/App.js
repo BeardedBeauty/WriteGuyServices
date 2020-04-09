@@ -1,6 +1,10 @@
 import React from 'react';
 import Nav from "./components/Nav";
 import Slider from "./components/Slider";
+// import { About, Home, Login } from "./pages";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import {
     BrowserRouter as Router,
     Switch,
@@ -32,17 +36,17 @@ class App extends React.Component {
     }
 
     render() {
-        const { x, y } = this.state.cursor;
         return (
             <div onMouseMove={this.cursorMove.bind(this)}>
-                <Nav />
-                <div className="centaur">
-                    <div className="intermodal">
-                        <p>write guy services, inc</p>
-                    </div>
-                </div>
-                <Slider />
-                <h1>Mouse coordinates: {y}</h1>
+                <Router>
+                    <Nav />
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/about" exact component={About} />
+                        <Route path="/login" exact component={Login} />
+                    </Switch>
+                    <Slider />
+                </Router>
             </div>
         );
     }
