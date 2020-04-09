@@ -8,13 +8,11 @@ function Login() {
                 <div className="intermodal">
                     <div className="logBlock z-depth-3"></div>
                     <div className="logBlock z-depth-3"></div>
-                    <div className="logMobile">
-                        <div id="loginDrawer">
-
-                        </div>
-                        <div id="signinDrawer">
-
-                        </div>
+                    <div id="signinDrawer">
+                        sfdscsacw
+                    </div>
+                    <div id="loginDrawer">
+                        safdghdfjgk
                     </div>
                 </div>
             </div>
