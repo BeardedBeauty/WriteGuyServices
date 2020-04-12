@@ -1,6 +1,11 @@
 import React from "react";
 import "materialize-css";
-import M from "materialize-css";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function Slider() {
     return (
@@ -20,7 +25,9 @@ function Slider() {
                 <li><a href="#!">Second Link</a></li>
                 <li><div className="divider"></div></li>
                 <li><a className="subheader">Subheader</a></li>
-                <li><a className="waves-effect" href="#!">Third Link With Waves</a></li>
+                <li><Link className="waves-effect" to="/">Home</Link></li>
+                <li><Link className="waves-effect" to="/about">About</Link></li>
+                <li><Link className="waves-effect" to="/login">Login</Link></li>
             </ul>
         </>
     )
