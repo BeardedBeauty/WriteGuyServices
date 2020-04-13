@@ -14,16 +14,16 @@ label.active {
 
 .logBlock {
     display: block;
-    margin-top: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 500px;
-    width: 400px;
+    width: 450px;
     background-color: #e9e9e9;
     border-radius: 6px;
     border-bottom: #464646;
     float: left;
-    padding: 10px;
+    padding: 0px 20px 0 20px;
 }
 
 .logMobile {
@@ -36,7 +36,6 @@ label.active {
 
 #signinDrawer {
     margin-top: 20px;
-    background-color: #969696;
     display: none;
     float: none;
     border-top-right-radius: 6px;
@@ -46,8 +45,7 @@ label.active {
 }
 
 #loginDrawer {
-    background-color: #969696;
-    border-top: 1px solid #797979;
+    border-top: 2px solid #646464;
     display: none;
     float: none;
     border-bottom-left-radius: 6px;
@@ -56,17 +54,25 @@ label.active {
     margin-right: 10px;
 }
 
-.closed {
+.closed0, .closed1 {
     overflow: hidden;
     height: 75px;
 }
 
-.open {
+.open0 {
     overflow: auto;
+    height: 300px;
+}
+
+.open1 {
+    overflow: auto;
+    height: 230px;
 }
 
 .drawer {
     transition: .2s;
+    padding: 0px 20px 10px 20px;
+    background-color: #e9e9e9;
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/

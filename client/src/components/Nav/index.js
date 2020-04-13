@@ -10,7 +10,7 @@ import "./style.css";
 function Nav() {
     return (
         <nav>
-            <div class="nav-wrapper green z-depth-5">
+            <div class="nav-wrapper teal darken-4 z-depth-5">
                 <div className="container">
                     <Link to="/" class="brand-logo">Write Guy</Link>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">

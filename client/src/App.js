@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from "./components/Nav";
 import Slider from "./components/Slider";
-// import { About, Home, Login } from "./pages";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -27,7 +26,7 @@ class App extends React.Component {
         document.addEventListener('DOMContentLoaded', function () {
             let elems = document.querySelectorAll('.sidenav');
             let instances = M.Sidenav.init(elems, {});
-            let instance = M.Sidenav.getInstance(".sidenav");
+            // let instance = M.Sidenav.getInstance(".sidenav");
         });
     }
 

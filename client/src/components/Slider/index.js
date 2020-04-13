@@ -21,10 +21,8 @@ function Slider() {
                         <a href="#email"><span className="white-text email">jdandturk@gmail.com</span></a>
                     </div>
                 </li>
-                <li><a href="#!"><i className="material-icons">cloud</i>First Link With Icon</a></li>
-                <li><a href="#!">Second Link</a></li>
                 <li><div className="divider"></div></li>
-                <li><a className="subheader">Subheader</a></li>
+                {/* <li><a className="subheader">Subheader</a></li> */}
                 <li><Link className="waves-effect" to="/">Home</Link></li>
                 <li><Link className="waves-effect" to="/about">About</Link></li>
                 <li><Link className="waves-effect" to="/login">Login</Link></li>
