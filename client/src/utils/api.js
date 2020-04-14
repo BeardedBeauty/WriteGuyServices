@@ -1,17 +1,14 @@
 import axios from "axios";
 
 export default {
-    getImages: function () {
-        return axios.get("/api/images").catch(err => console.log(err));
+    getUser: function (get) {
+        return axios.get("/api/users/" + get).catch(err => console.log(err));
     },
-    getImageQuery: function (get) {
-        return axios.get("/api/images/" + get).catch(err => console.log(err));
-    },
-    postImages: function (post) {
+    newUser: function (post) {
         console.log(post);
-        return axios.post("/api/images", post).catch(err => console.log(err));
+        return axios.post("/api/users", post).catch(err => console.log(err));
     },
-    deleteImages: function (input) {
-        return axios.delete("/api/images/" + input).catch(err => console.log(err));
+    deleteUser: function (input) {
+        return axios.delete("/api/users/" + input).catch(err => console.log(err));
     }
 };

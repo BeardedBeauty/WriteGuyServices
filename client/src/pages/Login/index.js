@@ -26,7 +26,7 @@ function Login() {
                     <div className="logBlock z-depth-3">
                         <h3>Register</h3>
                         <form enctype="multipart/form-data">
-                            <label for="name">name</label>
+                            <label for="name">full name</label>
                             <input type="text" id="name" name="name" />
                             <label for="email2">email</label>
                             <input type="text" id="email2" name="email2" />
@@ -43,7 +43,7 @@ function Login() {
                     <div id="signinDrawer" className={state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
                         <h4 className="logTitle">Register</h4>
                         <form enctype="multipart/form-data">
-                            <label for="name">name</label>
+                            <label for="name">full name</label>
                             <input type="text" id="name" name="name" />
                             <label for="email2">email</label>
                             <input type="text" id="email2" name="email2" />
