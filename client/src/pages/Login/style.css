@@ -61,18 +61,25 @@ label.active {
 
 .open0 {
     overflow: auto;
-    height: 300px;
+    height: 420px;/* #blazeit */
 }
 
 .open1 {
     overflow: auto;
-    height: 230px;
+    height: 270px;
 }
 
 .drawer {
-    transition: .2s;
+    transition: .3s;
     padding: 0px 20px 10px 20px;
     background-color: #e9e9e9;
+    z-index: 10;
+}
+
+button.block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
