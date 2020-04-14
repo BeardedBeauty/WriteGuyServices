@@ -7,6 +7,6 @@ router.route("/").post(user.create);
 router.route("/:id")
     .delete(user.remove)
     .get(user.find)
-    .put(user.update);
+// .put(user.update);
 
 module.exports = router;
