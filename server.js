@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3008;
 let mdb = process.env.MONGODB_URI
 
 mongoose.connect(mdb, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    console.log(`Database connected successfully, ${PORT}`);
+    console.log(`Database connected successfully`);
 }).catch(err => console.log(err));
 
 app.get("*", (req, res) => { res.sendFile(path.join(__dirname, "client", "build", "index.html")); });

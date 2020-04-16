@@ -6,6 +6,10 @@ function Login() {
     const [state, change] = useState({ drawer: ["closed", "z-depth-3 open"] });
     const [r, t] = useState("");
     const [o, p] = useState("");
+    const [j, k] = useState("");
+    const [l, z] = useState("");
+    const [qr, qt] = useState("");
+    const [x, c] = useState("");
 
     const openDrawer = w => w ? change({ drawer: ["closed", "z-depth-3 open"] }) : change({ drawer: ["z-depth-3 open", "closed"] });
     const setLoginEmail = u => t(u.target.value);
@@ -13,6 +17,19 @@ function Login() {
     const blockLoginSubmit = s => {
         s.preventDefault();
         console.log(r + o);
+    }
+
+    const registerName = qq => k(qq.target.value);
+    const registerEmail = qw => z(qw.target.value);
+    const registerPassword = qe => qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
+    const registerSubmit = qu => {
+        qu.preventDefault();
+        console.log(j + l + qr + x);
+        api.newUser({
+            name: j,
+            email: l,
+            password: qr
+        })
     }
 
     return (
@@ -37,17 +54,17 @@ function Login() {
                         <h3>Register</h3>
                         <form encType="multipart/form-data">
                             <label htmlFor="name">full name</label>
-                            <input type="text" id="name" name="name" />
+                            <input type="text" id="name" name="name" onChange={v => registerName(v)} />
                             <label htmlFor="email2">email</label>
-                            <input type="text" id="email2" name="email2" />
+                            <input type="text" id="email2" name="email2" onChange={b => registerEmail(b)} />
                             <label htmlFor="passw2">password</label>
-                            <input type="text" id="passw2" name="passw2" />
+                            <input type="text" id="passw2" name="passw2" onChange={n => registerPassword([n, 0])} />
                             <label htmlFor="passwconfirm2">confirm password</label>
-                            <input type="text" id="passwconfirm2" name="passwconfirm2" />
+                            <input type="text" id="passwconfirm2" name="passwconfirm2" onChange={m => registerPassword([m, 1])} />
                             <br /><br />
-                            <button className="btn block green waves-effect waves-light" type="submit" name="action">
-                                Submit<i className="material-icons right">send</i>
-                            </button>
+                            <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={qy => {
+                                registerSubmit(qy);
+                            }}>Submit<i className="material-icons right">send</i></button>
                         </form>
                     </div>
                     <div id="signinDrawer" className={state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
