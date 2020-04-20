@@ -5,12 +5,10 @@ const path = require("path");
 const routes = require("./routes");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
-const cors = require("cors");
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
-app.use(cors());
 
 const PORT = process.env.PORT || 3008;
 let mdb = process.env.MONGODB_URI
@@ -24,8 +22,8 @@ app.get("*", (req, res) => res.sendFile(path.join(__dirname, "client", "build", 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow=Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Credentials", "true");
+    // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    // res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
 
