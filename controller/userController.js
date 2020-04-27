@@ -24,8 +24,18 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
+        let qi;
+        bcrypt.genSalt(10, function (err, salt) {
+            bcrypt.hash(req.body.password, salt, function (err, hash) {
+                qi = {
+                    name: req.body.name,
+                    email: req.body.email,
+                    password: hash
+                }
+            });
+        });
         db.Users
-            .create(req.body)
+            .create(qi)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
