@@ -12,12 +12,17 @@ label.active {
     color: green !important;
 }
 
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
 .logBlock {
     display: block;
     margin-top: 50px;
     margin-left: 25px;
     margin-right: 25px;
-    height: 500px;
+    height: 530px;
     width: 450px;
     background-color: #e9e9e9;
     border-radius: 6px;
@@ -61,12 +66,12 @@ label.active {
 
 .open0 {
     overflow: auto;
-    height: 420px;/* #blazeit */
+    height: 440px;/* #blazeit */
 }
 
 .open1 {
     overflow: auto;
-    height: 270px;
+    height: 290px;
 }
 
 .drawer {
