@@ -15,23 +15,20 @@ function Login() {
     const openDrawer = w => w ? change({ drawer: ["closed", "z-depth-3 open"] }) : change({ drawer: ["z-depth-3 open", "closed"] });
     const setLoginEmail = u => t(u.target.value);
     const setLoginPassword = i => p(i.target.value);
-    const blockLoginSubmit = s => {
+    const loginSubmit = s => {
         s.preventDefault();
         console.log(r + o);
     }
 
     const registerName = qq => k(qq.target.value);
     const registerEmail = qw => z(qw.target.value);
-    const registerPassword = qe => {
-        qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
-    }
+    const registerPassword = qe => qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
     const registerSubmit = qu => {
         qu.preventDefault();
-        const qo = ["invalid", ""];
-        if (qt.length < 8 || c.length < 8) classInvalid(qo[0]);
-        else if (x !== qr) classInvalid(qo[0]);
+        if (qt.length < 8 || c.length < 8) classInvalid("invalid");
+        else if (x !== qr) classInvalid("invalid");
         else {
-            classInvalid(qo[1]);
+            classInvalid("valid");
             if (j !== "" && l !== "" && qr !== "" && x === qr) {
                 api.newUser({
                     name: j,
@@ -58,7 +55,7 @@ function Login() {
                             <input type="password" id="passw1" name="passw1" onChange={a => setLoginPassword(a)} />
                             <br /><br /><br /><br />
                             <button className="btn block green waves-effect waves-yellow" type="submit" name="action" onClick={d => {
-                                blockLoginSubmit(d);
+                                loginSubmit(d);
                             }}>Log in</button>
                         </form>
                     </div>
@@ -110,7 +107,7 @@ function Login() {
                             <label htmlFor="passw6">password</label>
                             <input type="password" id="passw6" name="passw6" onChange={g => setLoginPassword(g)} />
                             <button className="btn block green waves-effect waves-yellow" type="submit" name="action" onClick={h => {
-                                blockLoginSubmit(h);
+                                loginSubmit(h);
                             }}>Log in</button>
                         </form>
                     </div>
