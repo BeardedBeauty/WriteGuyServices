@@ -17,7 +17,9 @@ function Login() {
     const setLoginPassword = i => p(i.target.value);
     const loginSubmit = s => {
         s.preventDefault();
-        console.log(r + o);
+        api.getUser({ email: r, password: o }).then(res => {
+            console.log(res.data);
+        });
     }
 
     const registerName = qq => k(qq.target.value);
@@ -47,9 +49,9 @@ function Login() {
                         <h3>Log in</h3>
                         <br /><br /><br />
                         <form>
-                            <label for="email_inline">Email</label>
-                            <input id="email_inline" type="email" class="validate" onChange={y => setLoginEmail(y)} />
-                            <span class="helper-text" data-error="Please enter a valid email" data-success="right"></span>
+                            <label htmlFor="email_inline">Email</label>
+                            <input id="email_inline" type="email" className="validate" onChange={y => setLoginEmail(y)} />
+                            <span className="helper-text" data-error="Please enter a valid email" data-success="right"></span>
                             <br />
                             <label htmlFor="passw1">password</label>
                             <input type="password" id="passw1" name="passw1" onChange={a => setLoginPassword(a)} />
@@ -64,15 +66,15 @@ function Login() {
                         <form encType="multipart/form-data">
                             <label htmlFor="name">full name</label>
                             <input type="text" id="name" name="name" onChange={v => registerName(v)} />
-                            <label for="email_inline2">Email</label>
-                            <input id="email_inline2" type="email" class="validate" onChange={b => registerEmail(b)} />
-                            <span class="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
+                            <label htmlFor="email_inline2">Email</label>
+                            <input id="email_inline2" type="email" className="validate" onChange={b => registerEmail(b)} />
+                            <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                             <br />
                             <label htmlFor="passw2">password</label>
-                            <input type="password" id="passw2" name="passw2" class={passwordInvalid} onChange={n => registerPassword([n, 0])} />
+                            <input type="password" id="passw2" name="passw2" className={passwordInvalid} onChange={n => registerPassword([n, 0])} />
                             <label htmlFor="passwconfirm2">confirm password</label>
-                            <input type="password" id="passwconfirm2" name="passwconfirm2" class={passwordInvalid} onChange={m => registerPassword([m, 1])} />
-                            <span class="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
+                            <input type="password" id="passwconfirm2" name="passwconfirm2" className={passwordInvalid} onChange={m => registerPassword([m, 1])} />
+                            <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
                             <br /><br />
                             <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
                                 registerSubmit(qy);
@@ -84,14 +86,14 @@ function Login() {
                         <form encType="multipart/form-data">
                             <label htmlFor="name">full name</label>
                             <input type="text" id="name" name="name" onChange={v => registerName(v)} />
-                            <label for="email_inline3">Email</label>
-                            <input id="email_inline3" type="email" class="validate" onChange={b => registerEmail(b)} />
-                            <span class="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
+                            <label htmlFor="email_inline3">Email</label>
+                            <input id="email_inline3" type="email" className="validate" onChange={b => registerEmail(b)} />
+                            <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                             <br />
                             <label htmlFor="passw4">password</label>
-                            <input type="password" id="passw4" name="passw4" class={"validate " + passwordInvalid} onChange={n => registerPassword([n, 0])} />
+                            <input type="password" id="passw4" name="passw4" className={"validate " + passwordInvalid} onChange={n => registerPassword([n, 0])} />
                             <label htmlFor="passwconfirm">confirm password</label>
-                            <input type="password" id="passwconfirm" name="passwconfirm" class={"validate " + passwordInvalid} onChange={m => registerPassword([m, 1])} />
+                            <input type="password" id="passwconfirm" name="passwconfirm" className={"validate " + passwordInvalid} onChange={m => registerPassword([m, 1])} />
                             <button className="btn block green waves-effect waves-light" type="submit" name="action" >
                                 Submit<i className="material-icons right">send</i>
                             </button>
@@ -100,9 +102,9 @@ function Login() {
                     <div id="loginDrawer" className={state.drawer[1] + "1 drawer"} onClick={openDrawer.bind(this, 1)}>
                         <h4 className="logTitle">Log in</h4>
                         <form>
-                            <label for="email_inline4">Email</label>
-                            <input id="email_inline4" type="email" class="validate" onChange={f => setLoginEmail(f)} />
-                            <span class="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
+                            <label htmlFor="email_inline4">Email</label>
+                            <input id="email_inline4" type="email" className="validate" onChange={f => setLoginEmail(f)} />
+                            <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                             <br />
                             <label htmlFor="passw6">password</label>
                             <input type="password" id="passw6" name="passw6" onChange={g => setLoginPassword(g)} />

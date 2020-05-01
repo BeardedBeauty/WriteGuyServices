@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    getUser: function (get) {
-        return axios.get("/api/users/" + get).catch(err => console.log(err));
+    getUser: function (put) {
+        return axios.put("/api/users/login", put).catch(err => console.log(err));
     },
     newUser: function (post) {
         console.log(post);

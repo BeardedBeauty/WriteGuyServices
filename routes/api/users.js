@@ -4,9 +4,9 @@ const user = require("./../../controller/userController.js");
 router.route("/").post(user.create);
 // .get(user.findAll)
 
-router.route("/:id")
+router.route("/login")
     .delete(user.remove)
-    .get(user.find)
+    .put(user.compare)
 // .put(user.update);
 
 module.exports = router;
