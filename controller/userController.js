@@ -3,14 +3,19 @@ const bcrypt = require('bcryptjs');
 const JWT = require("jwt-simple");
 require("dotenv").config();
 let TOKEN = process.env.WEB_TOKEN;
+const cookie = require("js-cookie");
 
 module.exports = {
     compare: function (req, res) {
         db.Users.findOne({ email: req.body.email }, function (err, user) {
             user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
-                console.log(result);
                 let webToken = JWT.encode(user, TOKEN);
-                result ? res.json({ token: webToken, result }) : res.json({ token: false, result });
+                if (result) {
+                    res.json({ token: webToken, result });
+                    cookie.set(user.name, webToken, { expires: 14 });
+                }
+                else res.json({ token: false, result });
+                console.log(cookie.get(user.name));
             }) : res.send(false);
         }).then(userObj => res.status(200)).catch(err => res.status(422).json(err))
     },
