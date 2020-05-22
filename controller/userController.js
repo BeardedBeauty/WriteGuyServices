@@ -11,12 +11,11 @@ module.exports = {
             user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
                 let webToken = JWT.encode(user, TOKEN);
                 if (result) {
-                    res.json({ token: webToken, result });
                     cookie.set("token", webToken, { expires: 14 });
+                    return res.status(200).json({ token: webToken, result });
                 }
-                else res.json({ token: false, result });
-                console.log(cookie.get("token"));
-            }) : res.send(false);
+                else return res.status(400).json(result);
+            }) : res.status(400).json("false");
         }).then(userObj => res.status(200)).catch(err => res.status(422).json(err))
     },
     create: function (req, res) {

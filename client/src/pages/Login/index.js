@@ -18,7 +18,7 @@ function Login() {
     const loginSubmit = s => {
         s.preventDefault();
         api.getUser({ email: r, password: o }).then(res => {
-            res.data.result ? console.log(res.data.token) : console.log("extremely bad login");
+            res ? console.log(res.data.token) : console.log("extremely bad login");
         });
     }
 
