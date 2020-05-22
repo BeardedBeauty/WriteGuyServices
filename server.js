@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
 const routes = require("./routes");
-// const bcrypt = require("bcryptjs");
-// const JWT = require("jwt-simple");
 require("dotenv").config();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client/build")));
