@@ -12,10 +12,10 @@ module.exports = {
                 let webToken = JWT.encode(user, TOKEN);
                 if (result) {
                     res.json({ token: webToken, result });
-                    cookie.set(user.name, webToken, { expires: 14 });
+                    cookie.set("token", webToken, { expires: 14 });
                 }
                 else res.json({ token: false, result });
-                console.log(cookie.get(user.name));
+                console.log(cookie.get("token"));
             }) : res.send(false);
         }).then(userObj => res.status(200)).catch(err => res.status(422).json(err))
     },
