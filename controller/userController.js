@@ -1,15 +1,18 @@
 const db = require("../models");
 const bcrypt = require('bcryptjs');
+const JWT = require("jwt-simple");
+require("dotenv").config();
+let TOKEN = process.env.WEB_TOKEN;
 
 module.exports = {
     compare: function (req, res) {
         db.Users.findOne({ email: req.body.email }, function (err, user) {
-            bcrypt.compare(req.body.password, user.password, function (err, result) {
+            user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
                 console.log(result);
-                if (result) res.send(user.name);
-                else res.send("boo");
-            });
-        }).then(userObj => res.status()).catch(err => res.status(422).json(err));
+                let webToken = JWT.encode(user, TOKEN);
+                result ? res.json({ token: webToken, result }) : res.json({ token: false, result });
+            }) : res.send(false);
+        }).then(userObj => res.status(200)).catch(err => res.status(422).json(err))
     },
     create: function (req, res) {
         bcrypt.genSalt(10, function (err, salt) {
