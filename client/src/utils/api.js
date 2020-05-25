@@ -9,6 +9,6 @@ export default {
         return axios.post("/api/users", post).catch(err => console.log(err));
     },
     deleteUser: function (input) {
-        return axios.delete("/api/users/" + input).catch(err => console.log(err));
+        return axios.delete("/api/users/deleteUser/" + input).catch(err => console.log(err));
     }
 };
