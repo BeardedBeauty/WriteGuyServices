@@ -11,11 +11,6 @@ module.exports = {
             user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
                 const jwtencoded = JWT.encode(user, TOKEN);
                 result ? res.cookie("token", jwtencoded, { httpOnly: true }).sendStatus(200) : res.status(401).json(result);
-                // user: {
-                //     id: user._id,
-                //     email: user.email,
-                //     name: user.name
-                // }
             }) : res.status(401).json("false");
         }).catch(err => res.status(422).json(err));
     },
@@ -31,9 +26,9 @@ module.exports = {
         });
     },
     remove: function (req, res) {
-        console.log(req.params);
+        console.log(req.body);
         db.Users
-            .findById({ _id: req.params._id })
+            .findById({ _id: req.body.id })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

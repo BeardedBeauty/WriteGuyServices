@@ -2,13 +2,12 @@ import axios from "axios";
 
 export default {
     getUser: function (put) {
-        return axios.put("/api/users/login", put).catch(err => console.log(err));
+        return axios.put("/api/users/", put).catch(err => console.log(err));
     },
     newUser: function (post) {
-        console.log(post);
-        return axios.post("/api/users", post).catch(err => console.log(err));
+        return axios.post("/api/users/", post).catch(err => console.log(err));
     },
-    deleteUser: function (input) {
-        return axios.delete("/api/users/deleteUser/" + input).catch(err => console.log(err));
+    deleteUser: function (user) {
+        return axios.delete("/api/users/:" + user).catch(err => console.log(err));
     }
 };

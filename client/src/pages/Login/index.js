@@ -27,7 +27,8 @@ function Login() {
     const registerPassword = qe => qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
     const registerSubmit = qu => {
         qu.preventDefault();
-        if (qt.length < 8 || c.length < 8) classInvalid("invalid");
+        console.log(j + l + qr + x);
+        if (qr.length < 8 || x.length < 8) classInvalid("invalid");
         else if (x !== qr) classInvalid("invalid");
         else {
             classInvalid("valid");
