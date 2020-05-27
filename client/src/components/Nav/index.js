@@ -2,8 +2,6 @@ import React from "react";
 // import api from "../../utils/api";
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 import "./style.css";

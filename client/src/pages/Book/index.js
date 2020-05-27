@@ -6,26 +6,10 @@ class Book extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: { name: false, email: false },
-            loading: true,
-            redirect: false
+            user: { name: false, email: false }
         }
     }
-    componentDidMount = () => api.authUser().then(res => {
-        if (res) this.setState({ user: res.data, loading: false });
-        else {
-            const error = new Error(res.error);
-            throw error;
-        }
-    }).catch(err => { console.error(err); });
-
     render() {
-        if (this.state.loading) {
-            return null;
-        }
-        if (this.state.redirect) {
-            return <Redirect to="/login" />;
-        }
 
         return (
             <>
