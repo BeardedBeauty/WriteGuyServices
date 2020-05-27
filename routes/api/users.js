@@ -6,9 +6,7 @@ const router = require("express").Router();
 const user = require("./../../controller/userController.js");
 
 router.get("/", auth, function (req, res, next) {
-    // console.log(req);
-    console.log("whoa");
-    res.send("yeet");
+    res.json(req.user);
 });
 
 router.route("/")

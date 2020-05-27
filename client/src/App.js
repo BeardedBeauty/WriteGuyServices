@@ -4,6 +4,7 @@ import Slider from "./components/Slider";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Book from "./pages/Book";
 import {
     BrowserRouter as Router,
     Switch,
@@ -43,6 +44,7 @@ class App extends React.Component {
                         <Route path="/" exact component={Home} />
                         <Route path="/about" exact component={About} />
                         <Route path="/login" exact component={Login} />
+                        <Route path="/book" exact component={Book} />
                     </Switch>
                     <Slider />
                 </Router>

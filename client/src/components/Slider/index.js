@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../../utils/api";
 import "materialize-css";
 import {
     BrowserRouter as Router,
@@ -8,17 +9,19 @@ import {
 } from "react-router-dom";
 
 function Slider() {
+    const [user, change] = useState({ name: "Log in to view user profile", email: "" });
+    useEffect(() => { api.authUser().then(res => { if (res) change(res.data) }); }, []);
     return (
         <>
             <ul id="slide-out" className="sidenav">
                 <li>
                     <div className="user-view">
-                        <div className="background">
+                        {/* <div className="background">
                             <img src="images/office.jpg" />
                         </div>
-                        <a href="#user"><img className="circle" src="images/yuna.jpg" /></a>
-                        <a href="#name"><span className="white-text name">John Doe</span></a>
-                        <a href="#email"><span className="white-text email">jdandturk@gmail.com</span></a>
+                        <a href="#user"><img className="circle" src="images/yuna.jpg" /></a> */}
+                        <h5>{user.name}</h5>
+                        <h6>{user.email}</h6>
                     </div>
                 </li>
                 <li><div className="divider"></div></li>

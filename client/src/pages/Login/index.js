@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import api from "../../utils/api";
 
 function Login() {
+    useEffect(() => {
+        api.authUser().then(res => console.log(res))
+    }, []);
     const [state, change] = useState({ drawer: ["closed", "z-depth-3 open"] });
     const [passwordInvalid, classInvalid] = useState("");
     const [r, t] = useState("");
