@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 import api from "../../utils/api";
 
 function Login() {
-    useEffect(() => auth(), []);
-    const [qo, qp] = useState(false);
+    const [qi, qo] = useState();
     const [state, change] = useState({ drawer: ["closed", "z-depth-3 open"] });
     const [passwordInvalid, classInvalid] = useState("");
     const [r, t] = useState("");
@@ -46,17 +45,15 @@ function Login() {
     }
 
     const auth = () => api.authUser().then(res => {
-        console.log(res);
-        if (res.status === 200) qp(<Redirect to="/home" />)
+        console.log(res.data);
+        qo(res.data.name);
+        if (res.status === 200) return true;
         else {
-            const error = new Error(res.error);
-            throw error;
+            return false;
         }
-    }).catch(err => {
-        console.error(err);
-    });
+    })
 
-    return (
+    if (!auth()) return (
         <>
             <div className="centaur">
                 <div className="intermodal">
@@ -132,6 +129,15 @@ function Login() {
             </div>
         </>
     )
-}
 
+    else return (
+        <>
+            <div className="centaur">
+                <div className="intermodal">
+                    <p>you are already loggin in as {qi}</p>
+                </div>
+            </div>
+        </>
+    )
+}
 export default Login;
