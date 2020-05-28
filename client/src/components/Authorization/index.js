@@ -32,7 +32,7 @@ function Auth(Component) {
                 return <Redirect to="/login" />;
             }
 
-            return <Component {...this.props} />
+            return <Component {...this.props} user={this.state.user} />
         }
     }
 }

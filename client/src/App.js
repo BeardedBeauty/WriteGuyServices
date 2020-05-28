@@ -20,7 +20,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cursor: { x: 0, y: 0 }
         }
     }
 

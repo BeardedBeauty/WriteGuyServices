@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 import api from "../../utils/api";
 
 function Login() {
-    useEffect(() => {
-        api.authUser().then(res => console.log(res))
-    }, []);
+    useEffect(() => auth(), []);
+    const [qo, qp] = useState(false);
     const [state, change] = useState({ drawer: ["closed", "z-depth-3 open"] });
     const [passwordInvalid, classInvalid] = useState("");
     const [r, t] = useState("");
@@ -44,6 +44,17 @@ function Login() {
             }
         }
     }
+
+    const auth = () => api.authUser().then(res => {
+        console.log(res);
+        if (res.status === 200) qp(<Redirect to="/home" />)
+        else {
+            const error = new Error(res.error);
+            throw error;
+        }
+    }).catch(err => {
+        console.error(err);
+    });
 
     return (
         <>

@@ -1,9 +1,6 @@
 import React from "react";
 // import api from "../../utils/api";
-import {
-    BrowserRouter as Router,
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Nav() {

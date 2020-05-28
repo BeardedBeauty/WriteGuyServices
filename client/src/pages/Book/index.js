@@ -6,16 +6,15 @@ class Book extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: { name: false, email: false }
+            user: { name: props.user.name, email: props.user.email }
         }
     }
     render() {
-
         return (
             <>
                 <div className="centaur">
-                    <div className="intermodal">
-                        <p>{this.state.user.name + ", " + this.state.user.email}</p>
+                    <div className="intermodal" >
+                        <p>{this.props.user.name + ", " + this.props.user.email}</p>
                     </div>
                 </div>
             </>
