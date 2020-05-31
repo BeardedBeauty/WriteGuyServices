@@ -26,7 +26,8 @@ function Login(props) {
     const loginSubmit = s => {
         s.preventDefault();
         api.getUser({ email: r, password: o }).then(res => {
-            if (res.status === 200) props.history.push('/home');
+            console.log(res);
+            // if (res.status === 200) props.history.push('/home');
             window.location.reload(false);
         });
     }
