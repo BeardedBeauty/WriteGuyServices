@@ -1,7 +1,7 @@
 const db = require("../models");
 const bcrypt = require('bcryptjs');
 const JWT = require("jwt-simple");
-const auth = require("../Auth");
+// const auth = require("../Auth");
 require("dotenv").config();
 let TOKEN = process.env.WEB_TOKEN;
 
@@ -20,7 +20,8 @@ module.exports = {
                 db.Users.create({
                     name: req.body.name,
                     email: req.body.email,
-                    password: hash
+                    password: hash,
+                    zone: req.body.zone
                 }).then(dbModel => res.json(dbModel)).catch(err => res.status(422).json(err));
             });
         });

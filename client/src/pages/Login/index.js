@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 import api from "../../utils/api";
+import moment from "moment-timezone";
 
-function Login() {
+function Login(props) {
+    // useEffect(() => {
+    //     console.log(moment.tz.guess())
+    // }, []);
     const [qi, qo] = useState();
     const [qp, qa] = useState(false);
     const [qs, qd] = useState(false);
@@ -22,7 +26,8 @@ function Login() {
     const loginSubmit = s => {
         s.preventDefault();
         api.getUser({ email: r, password: o }).then(res => {
-            res ? console.log(res.data.token) : console.log("extremely bad login");
+            if (res.status === 200) props.history.push('/home');
+            window.location.reload(false);
         });
     }
 
@@ -31,7 +36,13 @@ function Login() {
     const registerPassword = qe => qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
     const registerSubmit = qu => {
         qu.preventDefault();
-        console.log(j + l + qr + x);
+        // uncomment these lines for testing purposes
+        // api.newUser({
+        //     name: j,
+        //     email: l,
+        //     password: qr,
+        //     zone: moment.tz.guess()
+        // })
         if (qr.length < 8 || x.length < 8) classInvalid("invalid");
         else if (x !== qr) classInvalid("invalid");
         else {
@@ -40,7 +51,8 @@ function Login() {
                 api.newUser({
                     name: j,
                     email: l,
-                    password: qr
+                    password: qr,
+                    zone: moment.tz.guess()
                 });
             }
         }
@@ -103,6 +115,13 @@ function Login() {
                                 <input type="password" id="passwconfirm2" name="passwconfirm2" className={passwordInvalid} onChange={m => registerPassword([m, 1])} />
                                 <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
                                 <br /><br />
+                                <label for="cars">Choose a car:</label>
+                                <select id="cars" name="cars">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="audi">Audi</option>
+                                </select>
                                 <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
                                     registerSubmit(qy);
                                 }}>Submit<i className="material-icons right">send</i></button>
