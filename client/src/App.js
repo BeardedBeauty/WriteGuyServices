@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Book from "./pages/Book";
+import Blog from "./pages/Blog";
 import Authorization from "./components/Authorization";
 import {
     BrowserRouter as Router,
@@ -39,6 +40,7 @@ class App extends React.Component {
                     <Route path="/" exact component={Home} />
                     <Route path="/about" exact component={About} />
                     <Route path="/login" exact component={Login} />
+                    <Route path="/blog" exact component={Blog} />
                     <Route path="/book" exact component={Authorization(Book)} />
                 </Switch>
                 <Slider />

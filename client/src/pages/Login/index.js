@@ -115,13 +115,13 @@ function Login(props) {
                                 <input type="password" id="passwconfirm2" name="passwconfirm2" className={passwordInvalid} onChange={m => registerPassword([m, 1])} />
                                 <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
                                 <br /><br />
-                                <label for="cars">Choose a car:</label>
+                                {/* <label for="cars">Choose a car:</label>
                                 <select id="cars" name="cars">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="fiat">Fiat</option>
                                     <option value="audi">Audi</option>
-                                </select>
+                                </select> */}
                                 <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
                                     registerSubmit(qy);
                                 }}>Submit<i className="material-icons right">send</i></button>

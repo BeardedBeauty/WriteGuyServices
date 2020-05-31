@@ -17,6 +17,7 @@ function Nav() {
                         </li>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>
                     <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">clear_all</i></a>
