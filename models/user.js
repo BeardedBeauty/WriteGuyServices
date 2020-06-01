@@ -5,7 +5,8 @@ const user = new Schema({
     name: String,
     email: String,
     password: String,
-    zone: String
+    zone: String,
+    admin: Boolean
 });
 
 module.exports = mongoose.model("users", user);

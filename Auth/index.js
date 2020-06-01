@@ -10,7 +10,14 @@ const auth = (req, res, next) => {
             if (!verified) return res.status(401).json({ msg: "Token does not match, authorization denied." });
         }
         else return res.status(401).json({ msg: "Token missing, authorization denied." });
-        req.user = { name: verified.name, email: verified.email };
+        verified.admin ? req.user = {
+            name: verified.name,
+            email: verified.email,
+            admin: verified.admin
+        } : req.user = {
+            name: verified.name,
+            email: verified.email
+        }
         next();
     } catch (err) {
         res.status(500).json({ error: "Unauthorized" });

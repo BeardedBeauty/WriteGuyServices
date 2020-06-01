@@ -21,7 +21,8 @@ module.exports = {
                     name: req.body.name,
                     email: req.body.email,
                     password: hash,
-                    zone: req.body.zone
+                    zone: req.body.zone,
+                    admin: false
                 }).then(dbModel => res.json(dbModel)).catch(err => res.status(422).json(err));
             });
         });

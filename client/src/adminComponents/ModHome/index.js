@@ -1,16 +1,17 @@
 import React from "react";
-import Nav from "../../components/Nav"
+import NavAdmin from "../../components/Nav/NavAdmin";
 
-function Home() {
+function ModHome() {
     return (
         <>
+            <NavAdmin />
             <div className="centaur">
                 <div className="intermodal">
-                    <p>home</p>
+                    <p>edit about section</p>
                 </div>
             </div>
         </>
     )
 }
 
-export default Home;
+export default ModHome;

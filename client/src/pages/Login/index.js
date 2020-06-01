@@ -38,25 +38,25 @@ function Login(props) {
     const registerSubmit = qu => {
         qu.preventDefault();
         // uncomment these lines for testing purposes
-        // api.newUser({
-        //     name: j,
-        //     email: l,
-        //     password: qr,
-        //     zone: moment.tz.guess()
-        // })
-        if (qr.length < 8 || x.length < 8) classInvalid("invalid");
-        else if (x !== qr) classInvalid("invalid");
-        else {
-            classInvalid("valid");
-            if (j !== "" && l !== "" && qr !== "" && x === qr) {
-                api.newUser({
-                    name: j,
-                    email: l,
-                    password: qr,
-                    zone: moment.tz.guess()
-                });
-            }
-        }
+        api.newUser({
+            name: j,
+            email: l,
+            password: qr,
+            zone: moment.tz.guess()
+        });
+        // if (qr.length < 8 || x.length < 8) classInvalid("invalid");
+        // else if (x !== qr) classInvalid("invalid");
+        // else {
+        //     classInvalid("valid");
+        //     if (j !== "" && l !== "" && qr !== "" && x === qr) {
+        //         api.newUser({
+        //             name: j,
+        //             email: l,
+        //             password: qr,
+        //             zone: moment.tz.guess()
+        //         });
+        //     }
+        // }
     }
 
     const auth = () => api.authUser().then(res => {
