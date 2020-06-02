@@ -1,3 +1,4 @@
 module.exports = {
-    Users: require("./user.js")
+    Users: require("./user.js"),
+    Blogs: require("./blogs.js")
 };

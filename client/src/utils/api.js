@@ -12,5 +12,8 @@ export default {
     },
     deleteUser: function (user) {
         return axios.delete("/api/users/:" + user).catch(err => console.log(err));
+    },
+    getBlogs: function () {
+        return axios.get("api/blogs").catch(err => console.log(err));
     }
 };

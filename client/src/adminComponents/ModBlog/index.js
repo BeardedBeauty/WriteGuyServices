@@ -1,5 +1,9 @@
 import React from "react";
 import NavAdmin from "../../components/Nav/NavAdmin";
+import "./style.css";
+import api from "../../utils/api";
+
+// console.log(Date.prototype.getDate() + Date.prototype.getMonth() + Date.prototype.getUTCFullYear())
 
 class ModBlog extends React.Component {
     constructor(props) {
@@ -8,6 +12,10 @@ class ModBlog extends React.Component {
             create: false,
             createbutton: "+ add new post"
         }
+    }
+
+    componentDidMount = () => {
+        // api.getBlogs();
     }
 
     create = () => this.state.create ? this.setState({
@@ -24,7 +32,7 @@ class ModBlog extends React.Component {
                 <NavAdmin />
                 <div className="centaur">
                     <div className="intermodal">
-                        <button id="" className="btn blue waves-effect waves-light" type="submit" name="action" onClick={this.create}>
+                        <button id="blogPost" className="btn blue waves-effect waves-light" type="submit" name="action" onClick={this.create}>
                             {this.state.createbutton}
                         </button>
                         {this.state.create && <>
