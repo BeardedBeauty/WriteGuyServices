@@ -7,6 +7,7 @@ module.exports = {
                 title: req.body.title,
                 content: req.body.content,
                 created: req.body.created,
+                image: req.body.image,
                 modified: "-",
                 about: false
             }).then(dbModel => res.json(dbModel)).catch(err => res.status(422).json(err));
