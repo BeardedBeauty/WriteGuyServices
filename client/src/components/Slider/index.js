@@ -28,6 +28,7 @@ function Slider() {
                 {/* <li><a className="subheader">Subheader</a></li> */}
                 <li><Link className="waves-effect" to="/">Home</Link></li>
                 <li><Link className="waves-effect" to="/about">About</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
                 <li><Link className="waves-effect" to="/login">Login</Link></li>
             </ul>
         </>

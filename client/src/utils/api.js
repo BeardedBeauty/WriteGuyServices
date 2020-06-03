@@ -13,7 +13,14 @@ export default {
     deleteUser: function (user) {
         return axios.delete("/api/users/:" + user).catch(err => console.log(err));
     },
+    //------------------------------------------------------- Blogs:
     getBlogs: function () {
-        return axios.get("api/blogs").catch(err => console.log(err));
+        return axios.get("api/blogs/").catch(err => console.log(err));
+    },
+    createBlog: function (post) {
+        return axios.post("/api/blogs/", post).catch(err => console.log(err));
+    },
+    deleteBlog: function (id) {
+        return axios.delete(`api/blogs/${id}`).catch(err => console.log(err));
     }
 };

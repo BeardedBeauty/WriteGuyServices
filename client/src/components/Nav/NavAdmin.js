@@ -11,7 +11,7 @@ function NavAdmin() {
                     <ul>
                         <li><Link to="/mod">Edit About</Link></li>
                         <li><Link to="/modblog">Blog Content</Link></li>
-                        <li><Link to="/blog">Registered Users</Link></li>
+                        {/* <li><Link to="/blog">Registered Users</Link></li> */}
                     </ul>
                 </div>
             </div>

@@ -5,7 +5,8 @@ const blog = new Schema({
     date: String,
     modified: String,
     title: String,
-    content: String
+    content: String,
+    about: Boolean
 });
 
 module.exports = mongoose.model("blogs", blog);

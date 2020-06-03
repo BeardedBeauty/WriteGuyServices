@@ -1,7 +1,6 @@
 const db = require("../models");
 const bcrypt = require('bcryptjs');
 const JWT = require("jwt-simple");
-// const auth = require("../Auth");
 require("dotenv").config();
 let TOKEN = process.env.WEB_TOKEN;
 
