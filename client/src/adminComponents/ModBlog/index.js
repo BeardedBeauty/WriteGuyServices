@@ -11,13 +11,12 @@ class ModBlog extends React.Component {
             createbutton: "+ add new post",
             title: "",
             content: "",
+            image: "",
             blogSupporter: []
         }
     }
 
-    componentDidMount = () => {
-        this.getBlogs();
-    }
+    componentDidMount = () => this.getBlogs();
 
     create = () => this.state.create ? this.setState({
         create: false,
@@ -31,13 +30,19 @@ class ModBlog extends React.Component {
         api.createBlog({
             title: this.state.title,
             content: this.state.content,
-            created: "whenever"
-        }).then(() => this.getBlogs());
+            created: new Date().toString().slice(4, 15).replace(/-/g, '/'),
+            image: this.state.image
+        }).then(() => {
+            this.getBlogs();
+            this.create();
+        });
     }
 
     title = qd => this.setState({ title: qd.target.value });
 
     content = qd => this.setState({ content: qd.target.value });
+
+    image = ql => this.setState({ image: ql.target.value });
 
     getBlogs = () => {
         api.getBlogs().then(res => {
@@ -75,6 +80,9 @@ class ModBlog extends React.Component {
                             <div id="blogTitle">
                                 <label htmlFor="title">title</label>
                                 <input type="text" id="" name="title" onChange={qs => this.title(qs)} />
+                                <br />
+                                <label htmlFor="image">image link</label>
+                                <input type="text" id="" name="image" onChange={qk => this.image(qk)} />
                             </div>
                             <textarea id="createblog" name="createblogcontent" onChange={qs => this.content(qs)}>
                                 Content here. Do not leave this blank

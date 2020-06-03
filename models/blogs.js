@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const blog = new Schema({
-    date: String,
+    created: String,
     modified: String,
     title: String,
     content: String,
+    image: String,
     about: Boolean
 });
 
