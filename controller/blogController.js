@@ -17,6 +17,9 @@ module.exports = {
     getBlogs: function (req, res) {
         db.Blogs.find({ about: false }).then(blogs => res.json(blogs)).catch(err => res.status(422).json(err));
     },
+    findBlog: function (req, res) {
+        db.Blogs.findById({ _id: req.params.id }).then(dbModel => res.json(dbModel)).catch(err => res.status(422).json(err));
+    },
     deleteBlog: function (req, res) {
         db.Blogs
             .findById({ _id: req.params.id })

@@ -17,6 +17,9 @@ export default {
     getBlogs: function () {
         return axios.get("api/blogs/").catch(err => console.log(err));
     },
+    findBlog: function (id) {
+        return axios.get(`/api/blogs/${id}`).catch(err => console.log(err));
+    },
     createBlog: function (post) {
         return axios.post("/api/blogs/", post).catch(err => console.log(err));
     },

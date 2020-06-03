@@ -1,5 +1,6 @@
 import React from "react";
 import NavAdmin from "../../components/Nav/NavAdmin";
+import CKEditor from 'ckeditor4-react';
 import "./style.css";
 import api from "../../utils/api";
 
@@ -14,6 +15,7 @@ class ModBlog extends React.Component {
             image: "",
             blogSupporter: []
         }
+        this.content = this.content.bind(this);
     }
 
     componentDidMount = () => this.getBlogs();
@@ -40,9 +42,15 @@ class ModBlog extends React.Component {
 
     title = qd => this.setState({ title: qd.target.value });
 
-    content = qd => this.setState({ content: qd.target.value });
+    content = qd => this.setState({ content: qd.editor.getData() });
 
     image = ql => this.setState({ image: ql.target.value });
+
+    modify = qz => {
+        api.findBlog(qz).then(res => {
+            console.log(res.data);
+        });
+    }
 
     getBlogs = () => {
         api.getBlogs().then(res => {
@@ -50,7 +58,7 @@ class ModBlog extends React.Component {
             for (let qf = 0; qf < res.data.length; qf++) {
                 qg.push(
                     <div className="modBlogStub z-depth-3" id={res.data[qf]._id} key={res.data[qf]._id}>
-                        <h5 className="">{res.data[qf].title}</h5>
+                        <h5 className="blog" onClick={() => this.modify(res.data[qf]._id)}>{res.data[qf].title}</h5>
                         <button className="btn purple waves-effect waves-light" id="deletebtn" type="submit" name="action" onClick={() => {
                             this.deleteBlog([res.data[qf]._id, res.data[qf].title]);
                         }}>delete</button>
@@ -62,7 +70,7 @@ class ModBlog extends React.Component {
     }
 
     deleteBlog = qh => {
-        if (window.confirm("Are you sure you want to delete " + qh[1] + "?")) {
+        if (window.confirm(`Are you sure you want to delete ${qh[1]}?`)) {
             api.deleteBlog(qh[0]).then(res => this.getBlogs());
         }
     }
@@ -80,13 +88,10 @@ class ModBlog extends React.Component {
                             <div id="blogTitle">
                                 <label htmlFor="title">title</label>
                                 <input type="text" id="" name="title" onChange={qs => this.title(qs)} />
-                                <br />
-                                <label htmlFor="image">image link</label>
-                                <input type="text" id="" name="image" onChange={qk => this.image(qk)} />
+                                <label htmlFor="image">image</label>
+                                <input type="text" id="" name="image" onChange={qs => this.image(qs)} />
                             </div>
-                            <textarea id="createblog" name="createblogcontent" onChange={qs => this.content(qs)}>
-                                Content here. Do not leave this blank
-                            </textarea>
+                            <CKEditor data="<p>Please write content here</p>" onChange={qs => this.content(qs)} />
                             <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={this.submitBlog}>
                                 Submit<i className="material-icons right">send</i>
                             </button>

@@ -9,7 +9,9 @@ router.route("/")
     .get(blog.getBlogs)
     .post(blog.create);
 
-router.route("/:id").delete(blog.deleteBlog);
+router.route("/:id")
+    .get(blog.findBlog)
+    .delete(blog.deleteBlog);
 // .put(blog.modify);
 
 module.exports = router;
