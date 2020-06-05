@@ -17,7 +17,7 @@ const BlogItem = ({ match }) => {
                         <div className="autoCenter">
                             <h3>{ww}</h3>
                         </div>
-                        <div className="generated" dangerouslySetInnerHTML={{ __html: qm }} />
+                        <div className="" dangerouslySetInnerHTML={{ __html: qm }} />
                     </>}
                     {!qm && <></>}
                 </div>
