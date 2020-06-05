@@ -11,7 +11,7 @@
     padding-right: 20px;
     padding-bottom: 20px;
     padding-left: 220px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .blogCoverImg {
@@ -29,7 +29,7 @@
     color: #ffffff
 }
 
-h4.blogBoxTitle {
+h5.blogBoxTitle {
     text-align: center;
     color: grey;
 }
@@ -54,4 +54,11 @@ div.more {
 .generated {
     text-decoration-color: #d4d4d4;
     z-index: 1;
+}
+
+.created {
+    position: absolute;
+    color: #c7c7c7;
+    margin-top: 170px;
+    z-index: 11;
 }

@@ -10,6 +10,7 @@ import Authorization from "./components/Authorization";
 import AuthAdmin from "./components/Authorization/admin"
 import ModHome from "./adminComponents/ModHome";
 import ModBlog from './adminComponents/ModBlog';
+import BlogItem from "./components/BlogItem";
 import {
     BrowserRouter as Router,
     Switch,
@@ -48,6 +49,7 @@ class App extends React.Component {
                     <Route path="/book" exact component={Authorization(Book)} />
                     <Route path="/mod" exact component={AuthAdmin(ModHome)} />
                     <Route path="/modblog" exact component={AuthAdmin(ModBlog)} />
+                    <Route path="/blog/:id" exact component={BlogItem} />
                 </Switch>
                 <Slider />
             </Router>

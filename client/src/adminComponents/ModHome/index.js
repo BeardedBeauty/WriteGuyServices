@@ -1,5 +1,6 @@
 import React from "react";
 import NavAdmin from "../../components/Nav/NavAdmin";
+import CKEditor from 'ckeditor4-react';
 
 function ModHome() {
     return (
@@ -7,7 +8,7 @@ function ModHome() {
             <NavAdmin />
             <div className="centaur">
                 <div className="intermodal">
-                    <p>edit about section</p>
+                    <CKEditor data="<p>Please write about section here</p>" onChange={qs => this.content(qs)} />
                 </div>
             </div>
         </>
