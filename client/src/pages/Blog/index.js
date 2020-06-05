@@ -23,7 +23,7 @@ class Blog extends React.Component {
                     image={qv.image}
                     key={qv._id} />
             )
-            if (qx.length === res.data.length) this.setState({ blogsData: qx });
+            if (qx.length === res.data.length) this.setState({ blogsData: qx.reverse() });
         }
     });
 
@@ -31,8 +31,9 @@ class Blog extends React.Component {
         return (
             <>
                 <div className="centaur">
-                    <div className="intermodal" >
-                        <p>BLOG</p>
+                    <div className="intermodal">
+                        <h3>Blog</h3>
+                        {this.state.blogsData}
                     </div>
                 </div>
             </>
