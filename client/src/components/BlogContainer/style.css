@@ -11,7 +11,6 @@
     padding-right: 20px;
     padding-bottom: 20px;
     padding-left: 220px;
-    /* cursor: pointer; */
 }
 
 .blogCoverImg {
@@ -52,7 +51,6 @@ div.more {
 }
 
 .generated {
-    text-decoration-color: #d4d4d4;
     z-index: 1;
 }
 
@@ -61,4 +59,19 @@ div.more {
     color: #c7c7c7;
     margin-top: 170px;
     z-index: 11;
+}
+
+@media screen and (max-width: 999px) {
+    .blogCoverImg {
+        visibility: hidden;
+    }
+
+    .blogClosed {
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    div.more {
+        text-align: right;
+    }
 }

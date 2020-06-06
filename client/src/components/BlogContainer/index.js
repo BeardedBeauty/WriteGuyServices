@@ -1,13 +1,6 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
-import BlogItem from "../BlogItem";
-
-const blogID = ({ match }) => {
-    console.log(match)
-    return <BlogItem id={match.params.id} />
-}
-
 
 function BlogContainer(props) {
     return (
