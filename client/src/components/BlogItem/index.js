@@ -7,10 +7,12 @@ const BlogItem = ({ match }) => {
     const [ww, we] = useState(null);
     const [wr, wt] = useState(null);
     const [wy, wu] = useState(null);
+    const [wi, wo] = useState(null);
     api.findBlog(match.params.id.toString()).then(res => {
         wq(res.data.content.toString());
         we(res.data.title.toString());
         wt(res.data.created.toString());
+        wo(res.data.image.toString());
         if (res.data.modified !== "-") wu(res.data.modified.toString());
     });
 
@@ -23,6 +25,7 @@ const BlogItem = ({ match }) => {
             </div>
             <div className="centaur">
                 <div className="intermodal" id="blogBackground">
+                    {wi && <img className="titleImg" src={wi} />}
                     <div className="internalHTML">
                         {qm && <div dangerouslySetInnerHTML={{ __html: qm }} />}
                         {!qm && <></>}

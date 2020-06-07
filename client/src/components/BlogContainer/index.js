@@ -13,6 +13,7 @@ function BlogContainer(props) {
                         <div className="more">Read More…</div>
                     </div>
                 </Link>
+                <div className="gradient"></div>
                 <h5 className="blogBoxTitle">{props.title}</h5>
                 <div className="generated" dangerouslySetInnerHTML={{ __html: props.content.toString() }} />
             </div>
