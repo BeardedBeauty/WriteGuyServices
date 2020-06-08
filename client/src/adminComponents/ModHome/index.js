@@ -14,6 +14,8 @@ class ModHome extends React.Component {
 
     componentDidMount = () => this.getAbout();
 
+    componentWillUnmount = () => this.setState({ about: null });
+
     getAbout = () => api.findBlog("5ed6749f8efd8459d3cb82f5").then(res => this.setState({ about: res.data.content }));
 
     content = ws => this.setState({ changedAbout: ws.editor.getData() });
@@ -27,7 +29,6 @@ class ModHome extends React.Component {
             alert("About section updated");
             this.getAbout();
         });
-        console.log(this.state.changedAbout);
     }
 
     render() {
@@ -36,7 +37,8 @@ class ModHome extends React.Component {
                 <NavAdmin />
                 <div className="centaur">
                     <div className="intermodal">
-                        <CKEditor data={this.state.about} onChange={wp => this.content(wp)} />
+                        <h3>Edit About Section</h3>
+                        {this.state.about && <CKEditor data={this.state.about} onChange={wp => this.content(wp)} />}
                     </div>
                 </div>
                 <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={this.submitBlog}>

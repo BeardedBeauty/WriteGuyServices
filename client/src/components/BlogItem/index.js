@@ -28,7 +28,6 @@ const BlogItem = ({ match }) => {
                     {wi && <img className="titleImg" src={wi} />}
                     <div className="internalHTML">
                         {qm && <div dangerouslySetInnerHTML={{ __html: qm }} />}
-                        {!qm && <></>}
                     </div>
                 </div>
             </div>
