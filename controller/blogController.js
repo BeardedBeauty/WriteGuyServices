@@ -14,6 +14,12 @@ module.exports = {
         }
         else { res.status(401).json("Content or title not provided"); }
     },
+    modBlog: function (req, res) {
+        db.Blogs.update({ _id: req.body.id }, {
+            content: req.body.content,
+            modified: req.body.modified
+        }).then(blogs => res.json(blogs)).catch(err => res.status(422).json(err));
+    },
     getBlogs: function (req, res) {
         db.Blogs.find({ about: false }).then(blogs => res.json(blogs)).catch(err => res.status(422).json(err));
     },

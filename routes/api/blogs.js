@@ -7,6 +7,7 @@ const blog = require("./../../controller/blogController.js");
 
 router.route("/")
     .get(blog.getBlogs)
+    .put(blog.modBlog)
     .post(blog.create);
 
 router.route("/:id")

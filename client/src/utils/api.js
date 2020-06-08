@@ -23,6 +23,9 @@ export default {
     createBlog: function (post) {
         return axios.post("/api/blogs/", post).catch(err => console.log(err));
     },
+    modBlog: function (post) {
+        return axios.put("/api/blogs/", post).catch(err => console.log(err));
+    },
     deleteBlog: function (id) {
         return axios.delete(`api/blogs/${id}`).catch(err => console.log(err));
     }
