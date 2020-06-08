@@ -16,8 +16,10 @@ class About extends React.Component {
         return (
             <>
                 <div className="centaur">
-                    <div className="intermodal">
-                        <div dangerouslySetInnerHTML={{ __html: this.state.about }} />
+                    <div className="intermodal" id="blogBackground">
+                        <div className="internalHTML">
+                            <div dangerouslySetInnerHTML={{ __html: this.state.about }} />
+                        </div>
                     </div>
                 </div>
             </>

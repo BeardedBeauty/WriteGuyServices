@@ -15,7 +15,9 @@ module.exports = {
         else { res.status(401).json("Content or title not provided"); }
     },
     modBlog: function (req, res) {
-        db.Blogs.update({ _id: req.body.id }, {
+        db.Blogs.updateOne({ _id: req.body.id }, {
+            title: req.body.title,
+            image: req.body.image,
             content: req.body.content,
             modified: req.body.modified
         }).then(blogs => res.json(blogs)).catch(err => res.status(422).json(err));

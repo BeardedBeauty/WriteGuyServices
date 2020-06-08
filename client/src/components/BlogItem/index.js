@@ -18,13 +18,13 @@ const BlogItem = ({ match }) => {
 
     return (
         <>
-            <div className="contentTitle">
-                <h4>{ww}</h4>
-                <p className="creationDate">Written by Casey Ochs on {wr}</p>
-                {wy && <p className="creationDate">Modified {wy}</p>}
-            </div>
             <div className="centaur">
                 <div className="intermodal" id="blogBackground">
+                    <div className="contentTitle">
+                        <h4>{ww}</h4>
+                        <p className="creationDate">Written by Casey Ochs on {wr}</p>
+                        {wy && <p className="creationDate">Modified {wy}</p>}
+                    </div>
                     {wi && <img className="titleImg" src={wi} />}
                     <div className="internalHTML">
                         {qm && <div dangerouslySetInnerHTML={{ __html: qm }} />}

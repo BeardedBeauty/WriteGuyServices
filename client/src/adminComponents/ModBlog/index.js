@@ -8,25 +8,36 @@ class ModBlog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            create: false,
+            create: 0,
             createbutton: "+ add new post",
             title: "",
-            content: "",
+            content: "<p>Please write content here</p>",
             image: "",
-            blogSupporter: []
+            blogSupporter: [],
+            modify: false
         }
         this.content = this.content.bind(this);
     }
 
     componentDidMount = () => this.getBlogs();
 
-    create = () => this.state.create ? this.setState({
-        create: false,
-        createbutton: "+ add new post"
-    }) : this.setState({
-        create: true,
-        createbutton: "- cancel post"
-    });
+    create = () => {
+        if (this.state.create === 1) this.setState({
+            create: 0,
+            createbutton: "+ add new post"
+        });
+        else if (this.state.create === 0) this.setState({
+            create: 1,
+            createbutton: "- cancel post"
+        });
+        else {
+            this.setState({
+                modify: false,
+                create: 0,
+                createbutton: "+ add new post"
+            });
+        }
+    }
 
     submitBlog = () => {
         api.createBlog({
@@ -49,6 +60,12 @@ class ModBlog extends React.Component {
     modify = qz => {
         api.findBlog(qz).then(res => {
             console.log(res.data);
+            this.setState({
+                content: res.data.content,
+                modify: true,
+                create: 2,
+                createbutton: "∆ cancel edit"
+            });
         });
     }
 
@@ -91,12 +108,15 @@ class ModBlog extends React.Component {
                                 <label htmlFor="image">image</label>
                                 <input type="text" id="" name="image" onChange={qs => this.image(qs)} />
                             </div>
-                            <CKEditor data="<p>Please write content here</p>" onChange={qs => this.content(qs)} />
-                            <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={this.submitBlog}>
+                            <CKEditor data={this.state.content} onChange={qs => this.content(qs)} />
+                            {this.state.create === 1 && <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={this.submitBlog}>
                                 Submit<i className="material-icons right">send</i>
-                            </button>
+                            </button>}
+                            {this.state.create === 2 && <button className="btn block green waves-effect waves-light" type="submit" name="action" onClick={this.modify}>
+                                Update<i className="material-icons right">send</i>
+                            </button>}
                         </>}
-                        <div id="blogsHolder">{this.state.blogSupporter}</div>
+                        {this.state.create === 0 && <div id="blogsHolder">{this.state.blogSupporter}</div>}
                     </div>
                 </div>
             </>

@@ -16,6 +16,18 @@
   text-align: center;
 }
 
+.internalHTML {
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+}
+
+#blogBackground {
+  background-color: aliceblue;
+}
+
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
   .intermodal {
       width: 100%;
@@ -23,5 +35,8 @@
   }
   .centaur {
     margin-left: 0%;
+  }
+  .internalHTML {
+      width: 350px;
   }
 }
