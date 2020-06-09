@@ -4,10 +4,7 @@ import "./style.css";
 import api from "../../utils/api";
 import moment from "moment-timezone";
 
-function Login(props) {
-    // useEffect(() => {
-    //     console.log(moment.tz.guess())
-    // }, []);
+function Login() {
     const [qi, qo] = useState();
     const [qp, qa] = useState(false);
     const [qs, qd] = useState(false);
@@ -75,7 +72,7 @@ function Login(props) {
 
     return (
         <>
-            {qp && <Redirect to="/home" />}
+            {/* {qp && <Redirect to="/home" />} */}
             {!qp && <>
                 <div className="centaur">
                     <div className="intermodal">

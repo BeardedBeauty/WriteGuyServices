@@ -32,7 +32,7 @@ class App extends React.Component {
     componentDidMount = () => {
         document.addEventListener('DOMContentLoaded', function () {
             let elems = document.querySelectorAll('.sidenav');
-            let instances = M.Sidenav.init(elems, {});
+            M.Sidenav.init(elems, {});
             // let instance = M.Sidenav.getInstance(".sidenav");
         });
     }
