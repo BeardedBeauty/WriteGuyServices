@@ -1,6 +1,4 @@
 import React from "react";
-import api from "../../utils/api";
-import { Redirect } from "react-router-dom";
 import moment from "moment-timezone";
 
 class Book extends React.Component {
@@ -11,8 +9,6 @@ class Book extends React.Component {
             timeZone: moment.tz.guess()
         }
     }
-
-    componentDidMount = () => console.log(this.state.timeZone);
 
     render() {
         return (

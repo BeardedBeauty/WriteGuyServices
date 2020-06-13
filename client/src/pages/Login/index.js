@@ -1,38 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 import api from "../../utils/api";
 import moment from "moment-timezone";
 
-function Login() {
-    const [qi, qo] = useState();
-    const [qp, qa] = useState(false);
-    const [qs, qd] = useState(false);
-    const [state, change] = useState({ drawer: ["closed", "z-depth-3 open"] });
-    const [passwordInvalid, classInvalid] = useState("");
-    const [r, t] = useState("");
-    const [o, p] = useState("");
-    const [j, k] = useState("");
-    const [l, z] = useState("");
-    const [qr, qt] = useState("");
-    const [x, c] = useState("");
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loginemail: "",
+            loginpass: "",
+            registername: "",
+            registeremail: "",
+            registerpass: "",
+            registerpassconfirm: "",
+            invalid: "",
+            redirect: false,
+            loading: true
+        }
+    }
 
-    const openDrawer = w => w ? change({ drawer: ["closed", "z-depth-3 open"] }) : change({ drawer: ["z-depth-3 open", "closed"] });
-    const setLoginEmail = u => t(u.target.value);
-    const setLoginPassword = i => p(i.target.value);
-    const loginSubmit = s => {
+    componentDidMount = () => this.auth();
+
+    setLoginEmail = wf => this.setState({ loginemail: wf.target.value });
+    setLoginPass = wg => this.setState({ loginpass: wg.target.value });
+
+    registerName = wh => this.setState({ registername: wh.target.value });
+    registerEmail = wj => this.setState({ registeremail: wj.target.value });
+    registerPassword = wk => {
+        wk[1]
+            ? this.setState({ registerpass: wk[0].target.value })
+            : this.setState({ registerpassconfirm: wk[0].target.value });
+    }
+
+    loginSubmit = s => {
         s.preventDefault();
-        api.getUser({ email: r, password: o }).then(res => {
-            console.log(res);
-            // if (res.status === 200) props.history.push('/home');
-            window.location.reload(false);
+        api.getUser({ email: this.state.loginemail, password: this.state.loginpass }).then(res => {
+            if (res) { this.setState({ redirect: true }); }
+            // window.location.reload(false);
         });
     }
 
-    const registerName = qq => k(qq.target.value);
-    const registerEmail = qw => z(qw.target.value);
-    const registerPassword = qe => qe[1] ? qt(qe[0].target.value) : c(qe[0].target.value);
-    const registerSubmit = qu => {
+    registerSubmit = qu => {
         qu.preventDefault();
         // uncomment these lines for testing purposes
         // api.newUser({
@@ -41,10 +50,14 @@ function Login() {
         //     password: qr,
         //     zone: moment.tz.guess()
         // });
-        if (qr.length < 8 || x.length < 8) classInvalid("invalid");
-        else if (x !== qr) classInvalid("invalid");
+        let j = this.state.register.name;
+        let l = this.state.register.email;
+        let qr = this.state.register.pass;
+        let x = this.state.register.passconfirm;
+        if (this.state.register.pass.length < 8 || this.state.register.passconfirm.length < 8) this.setState({ invalid: "invalid" });
+        else if (this.state.register.pass !== this.state.register.passconfirm) this.setState({ invalid: "invalid" });
         else {
-            classInvalid("valid");
+            this.setState({ invalid: "valid" });
             if (j !== "" && l !== "" && qr !== "" && x === qr) {
                 api.newUser({
                     name: j,
@@ -56,24 +69,26 @@ function Login() {
         }
     }
 
-    const auth = () => api.authUser().then(res => {
-        if (res !== undefined) {
-            qo(res.data.name);
-            qa(true);
-            return true;
+    auth = () => api.authUser().then(res => {
+        if (res) {
+            this.setState({
+                redirect: true,
+                loading: false
+            });
+            window.location.reload(false);
         }
-        return false;
+        else { this.setState({ loading: false }); }
     });
 
-    if (!qs) {
-        auth();
-        qd(true);
-    }
-
-    return (
-        <>
-            {/* {qp && <Redirect to="/home" />} */}
-            {!qp && <>
+    render() {
+        if (this.state.loading) {
+            return null;
+        }
+        if (this.state.redirect) {
+            return <Redirect to="/home" />;
+        }
+        if (!this.state.redirent && !this.state.loading) return (
+            <>
                 <div className="centaur">
                     <div className="intermodal">
                         <div className="logBlock z-depth-3">
@@ -81,14 +96,14 @@ function Login() {
                             <br /><br /><br />
                             <form>
                                 <label htmlFor="email_inline">Email</label>
-                                <input id="email_inline" type="email" className="validate" onChange={y => setLoginEmail(y)} />
+                                <input id="email_inline" type="email" className="validate" onChange={y => this.setLoginEmail(y)} />
                                 <span className="helper-text" data-error="Please enter a valid email" data-success="right"></span>
                                 <br />
                                 <label htmlFor="passw1">password</label>
-                                <input type="password" id="passw1" name="passw1" onChange={a => setLoginPassword(a)} />
+                                <input type="password" id="passw1" name="passw1" onChange={a => this.setLoginPass(a)} />
                                 <br /><br /><br /><br />
                                 <button className="btn block green waves-effect waves-yellow" type="submit" name="action" onClick={d => {
-                                    loginSubmit(d);
+                                    this.loginSubmit(d);
                                 }}>Log in</button>
                             </form>
                         </div>
@@ -96,30 +111,23 @@ function Login() {
                             <h3>Register</h3>
                             <form encType="multipart/form-data">
                                 <label htmlFor="name">full name</label>
-                                <input type="text" id="name" name="name" onChange={v => registerName(v)} />
+                                <input type="text" id="name" name="name" onChange={v => this.registerName(v)} />
                                 <label htmlFor="email_inline2">Email</label>
-                                <input id="email_inline2" type="email" className="validate" onChange={b => registerEmail(b)} />
+                                <input id="email_inline2" type="email" className="validate" onChange={b => this.registerEmail(b)} />
                                 <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                                 <br />
                                 <label htmlFor="passw2">password</label>
-                                <input type="password" id="passw2" name="passw2" className={passwordInvalid} onChange={n => registerPassword([n, 0])} />
+                                <input type="password" id="passw2" name="passw2" className={this.state.invalid} onChange={n => this.registerPassword([n, false])} />
                                 <label htmlFor="passwconfirm2">confirm password</label>
-                                <input type="password" id="passwconfirm2" name="passwconfirm2" className={passwordInvalid} onChange={m => registerPassword([m, 1])} />
+                                <input type="password" id="passwconfirm2" name="passwconfirm2" className={this.state.invalid} onChange={m => this.registerPassword([m, true])} />
                                 <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
                                 <br /><br />
-                                {/* <label for="cars">Choose a car:</label>
-                                <select id="cars" name="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="fiat">Fiat</option>
-                                    <option value="audi">Audi</option>
-                                </select> */}
                                 <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
-                                    registerSubmit(qy);
+                                    this.registerSubmit(qy);
                                 }}>Submit<i className="material-icons right">send</i></button>
                             </form>
                         </div>
-                        <div id="signinDrawer" className={state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
+                        {/* <div id="signinDrawer" className={state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
                             <h4 className="logTitle">Register</h4>
                             <form encType="multipart/form-data">
                                 <label htmlFor="name">full name</label>
@@ -129,9 +137,9 @@ function Login() {
                                 <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                                 <br />
                                 <label htmlFor="passw4">password</label>
-                                <input type="password" id="passw4" name="passw4" className={"validate " + passwordInvalid} onChange={n => registerPassword([n, 0])} />
+                                <input type="password" id="passw4" name="passw4" className={"validate " + this.state.invalid} onChange={n => registerPassword([n, false])} />
                                 <label htmlFor="passwconfirm">confirm password</label>
-                                <input type="password" id="passwconfirm" name="passwconfirm" className={"validate " + passwordInvalid} onChange={m => registerPassword([m, 1])} />
+                                <input type="password" id="passwconfirm" name="passwconfirm" className={"validate " + this.state.invalid} onChange={m => registerPassword([m, true])} />
                                 <button className="btn block green waves-effect waves-light" type="submit" name="action" >
                                     Submit<i className="material-icons right">send</i>
                                 </button>
@@ -150,12 +158,12 @@ function Login() {
                                     loginSubmit(h);
                                 }}>Log in</button>
                             </form>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-            </>}
-        </>
-    )
+            </>
+        )
+    }
 }
 
 export default Login;   

@@ -11,21 +11,22 @@ import AuthAdmin from "./components/Authorization/admin"
 import ModHome from "./adminComponents/ModHome";
 import ModBlog from './adminComponents/ModBlog';
 import BlogItem from "./components/BlogItem";
+import Profile from "./pages/Profile";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import "materialize-css";
 import M from "materialize-css";
 import './App.css';
+// import api from "./utils/api";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            user: false
         }
     }
 
@@ -33,7 +34,6 @@ class App extends React.Component {
         document.addEventListener('DOMContentLoaded', function () {
             let elems = document.querySelectorAll('.sidenav');
             M.Sidenav.init(elems, {});
-            // let instance = M.Sidenav.getInstance(".sidenav");
         });
     }
 
@@ -50,6 +50,7 @@ class App extends React.Component {
                     <Route path="/mod" exact component={AuthAdmin(ModHome)} />
                     <Route path="/modblog" exact component={AuthAdmin(ModBlog)} />
                     <Route path="/blog/:id" exact component={BlogItem} />
+                    <Route path="/profile" exact component={Authorization(Profile)} />
                 </Switch>
                 <Slider />
             </Router>

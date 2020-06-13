@@ -9,8 +9,29 @@ module.exports = {
         db.Users.findOne({ email: req.body.email }, function (err, user) {
             user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
                 const jwtencoded = JWT.encode(user, TOKEN);
-                result ? res.cookie("token", jwtencoded, { httpOnly: true }).sendStatus(200) : res.status(401).json(result);
+                result ? res.cookie("writeToken", jwtencoded, {
+                    httpOnly: true,
+                    // secure: true,
+                    // sameSite: true,
+                }).sendStatus(200) : res.status(401).json(result);
             }) : res.status(401).json("false");
+        }).catch(err => res.status(422).json(err));
+    },
+    updatePassword: function (req, res) {
+        db.Users.findOne({ email: req.body.email }, function (err, user) {
+            if (user) {
+                bcrypt.compare(req.body.current, user.password, function (err, result) {
+                    bcrypt.genSalt(10, function (err, salt) {
+                        bcrypt.hash(req.body.new, salt, function (err, hash) {
+                            if (result) db.Users.updateOne({ _id: user._id }, { password: hash }).then(res.sendStatus(200));
+                            else { res.sendStatus(401); }
+                            if (err) console.log(err);
+                        });
+                        if (err) console.log(err);
+                    });
+                    if (err) console.log(err);
+                });
+            }
         }).catch(err => res.status(422).json(err));
     },
     create: function (req, res) {

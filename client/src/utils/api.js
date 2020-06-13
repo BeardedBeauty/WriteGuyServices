@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+    //------------------------------------------------------- Users:
     authUser: function () {
         return axios.get("api/users/").catch(err => console.log(err));
     },
@@ -12,6 +13,12 @@ export default {
     },
     deleteUser: function (user) {
         return axios.delete("/api/users/:" + user).catch(err => console.log(err));
+    },
+    updatePassword: function (user) {
+        return axios.put("/api/users/passwordUpdate", user).catch(err => console.log(err));
+    },
+    logOut: function () {
+        return axios.get("api/users/logout").catch(err => console.log(err));
     },
     //------------------------------------------------------- Blogs:
     getBlogs: function () {

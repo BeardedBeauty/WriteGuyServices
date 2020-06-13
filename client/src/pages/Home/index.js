@@ -6,6 +6,7 @@ function Home() {
             <div className="centaur">
                 <div className="intermodal">
                     <p>home</p>
+                    <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >yes</button>
                 </div>
             </div>
         </>

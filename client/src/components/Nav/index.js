@@ -1,9 +1,11 @@
-import React from "react";
-// import api from "../../utils/api";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../../utils/api";
 import "./style.css";
 
 function Nav() {
+    const [user, change] = useState({ name: false, email: false, admin: false });
+    useEffect(() => { api.authUser().then(res => { if (res) change(res.data) }); }, []);
     return (
         <nav>
             <div className="nav-wrapper teal darken-4 z-depth-5">
@@ -18,7 +20,9 @@ function Nav() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/blog">Blog</Link></li>
-                        <li><Link to="/login">Login</Link></li>
+                        {!user.email && <li><Link to="/login">Login</Link></li>}
+                        {user.name && <li><Link to="/profile">{user.name}</Link></li>}
+                        {user.admin && <li><Link to="/mod">∆ EDIT</Link></li>}
                     </ul>
                     <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">clear_all</i></a>
                 </div>

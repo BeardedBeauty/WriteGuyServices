@@ -25,19 +25,19 @@ const BlogItem = ({ match }) => {
                         <p className="creationDate">Written by Casey Ochs on {wr}</p>
                         {wy && <p className="creationDate">Modified {wy}</p>}
                     </div>
-                    {wi && <img className="titleImg" src={wi} />}
+                    {wi && <img className="titleImg" src={wi} alt={ww} />}
                     <div className="internalHTML">
                         <div className="buttons">
                             <a href={"mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://write-guyservices.net" + match.url}>
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
                             </a>
-                            <a href={"http://www.facebook.com/sharer.php?u=https://write-guyservices.net" + match.url} target="_blank">
+                            <a href={"http://www.facebook.com/sharer.php?u=https://write-guyservices.net" + match.url}>
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
                             </a>
-                            <a href={"http://www.linkedin.com/shareArticle?mini=true&amp;url=https://write-guyservices.net" + match.url} target="_blank">
+                            <a href={"http://www.linkedin.com/shareArticle?mini=true&amp;url=https://write-guyservices.net" + match.url}>
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
                             </a>
-                            <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
+                            <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons">
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
                             </a>
                         </div>
