@@ -29,7 +29,7 @@ function Auth(Component) {
                 return null;
             }
             if (this.state.redirect) {
-                return <Redirect to="/login" />;
+                return <Redirect to="/" />;
             }
 
             return <Component {...this.props} user={this.state.user} />

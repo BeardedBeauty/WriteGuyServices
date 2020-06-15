@@ -51,7 +51,7 @@ class Profile extends React.Component {
                             <br /><br />
                             <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" onClick={this.passwordChange}>Change password</button>
                             <br /><br />
-                            <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" href="mailto:casey@write-guyservices.net">contact casey ochs</button>
+                            <a href="mailto:casey@write-guyservices.net"><button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >contact casey ochs</button></a>
                             <br /><br />
                             <button id="" className="btn red waves-effect waves-yellow" type="submit" name="action" >delete account</button>
                             <br /><br />

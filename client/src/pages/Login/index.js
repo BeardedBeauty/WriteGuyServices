@@ -53,12 +53,12 @@ class Login extends React.Component {
         //     password: qr,
         //     zone: moment.tz.guess()
         // });
-        let j = this.state.register.name;
-        let l = this.state.register.email;
-        let qr = this.state.register.pass;
-        let x = this.state.register.passconfirm;
-        if (this.state.register.pass.length < 8 || this.state.register.passconfirm.length < 8) this.setState({ invalid: "invalid" });
-        else if (this.state.register.pass !== this.state.register.passconfirm) this.setState({ invalid: "invalid" });
+        let j = this.state.registername;
+        let l = this.state.registeremail;
+        let qr = this.state.registerpass;
+        let x = this.state.registerpassconfirm;
+        if (this.state.registerpass.length < 8 || this.state.registerpassconfirm.length < 8) this.setState({ invalid: "invalid" });
+        else if (this.state.registerpass !== this.state.registerpassconfirm) this.setState({ invalid: "invalid" });
         else {
             this.setState({ invalid: "valid" });
             if (j !== "" && l !== "" && qr !== "" && x === qr) {

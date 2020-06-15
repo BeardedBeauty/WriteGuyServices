@@ -33,7 +33,7 @@ function Admin(Component) {
                 return null;
             }
             if (this.state.redirect) {
-                return <Redirect to="/home" />;
+                return <Redirect to="/" />;
             }
 
             return <Component {...this.props} user={this.state.user} />
