@@ -17,7 +17,8 @@ class Login extends React.Component {
             invalid: "",
             redirect: false,
             loading: true,
-            drawer: []
+            DTdrawer: ["login loginOpenDT z-depth-3", "register registerClosedDT"],
+            drawerState: true
         }
     }
 
@@ -86,6 +87,14 @@ class Login extends React.Component {
         this.setState({ loading: false });
     });
 
+    DTdrawers = wl => !wl ? this.setState({
+        DTdrawer: ["loginClosedDT", "registerOpenDT z-depth-3"],
+        drawerState: false
+    }) : this.setState({
+        DTdrawer: ["loginOpenDT z-depth-3", "registerClosedDT"],
+        drawerState: true
+    });
+
     render() {
         if (this.state.loading) {
             return null;
@@ -98,7 +107,7 @@ class Login extends React.Component {
                 <div className="centaur">
                     <div className="intermodal">
                         <div className="logBlock">
-                            <div className="login loginOpenDT z-depth-3">
+                            <div className={`login ${this.state.DTdrawer[0]}`} onClick={this.DTdrawers.bind(this, true)}>
                                 <h3>Log in</h3>
                                 <br /><br /><br />
                                 <form>
@@ -114,8 +123,8 @@ class Login extends React.Component {
                                     }}>Log in</button>
                                 </form>
                             </div>
-                            <div className=" z-depth-3">
-                                <h3>Register</h3>
+                            <div className={`register ${this.state.DTdrawer[1]}`} onClick={this.DTdrawers.bind(this, false)}>
+                                <h3>r</h3>
                                 <form encType="multipart/form-data">
                                     <label htmlFor="name">full name</label>
                                     <input type="text" id="name" name="name" onChange={v => this.registerName(v)} />

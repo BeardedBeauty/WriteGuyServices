@@ -31,6 +31,7 @@ label.active {
     border-right: 3px solid #646464;
     border-bottom-left-radius: 6px;
     border-top-left-radius: 6px;
+    float: left;
 }
 
 .loginClosedDT {
@@ -45,14 +46,21 @@ label.active {
 }
 
 .register {
-    width: 550px;
     height: 100%;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    float: left;
+}
+
+.registerOpenDT {
+    width: 500px;
     background-color: #ffffff;
-    border-right: 3px solid #646464;
-    border-bottom-left-radius: 6px;
-    border-top-left-radius: 6px;
     text-align: center;
-    padding: 10px;
+    padding: 50px;
+}
+
+.registerClosedDT {
+    width: 100px;
 }
 
 .logMobile {
