@@ -20,15 +20,39 @@ label.active {
 .logBlock {
     display: block;
     margin-top: 50px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: auto;
+    margin-right: auto;
     height: 530px;
-    width: 450px;
-    background-color: #e9e9e9;
-    border-radius: 6px;
-    border-bottom: #464646;
-    float: left;
-    padding: 0px 20px 0 20px;
+    width: 600px;
+}
+
+.login {
+    height: 100%;
+    border-right: 3px solid #646464;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.loginClosedDT {
+    width: 100px;
+}
+
+.loginOpenDT {
+    width: 500px;
+    padding: 50px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.register {
+    width: 550px;
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 3px solid #646464;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    text-align: center;
+    padding: 10px;
 }
 
 .logMobile {

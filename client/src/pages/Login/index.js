@@ -16,7 +16,8 @@ class Login extends React.Component {
             registerpassconfirm: "",
             invalid: "",
             redirect: false,
-            loading: true
+            loading: true,
+            drawer: []
         }
     }
 
@@ -96,43 +97,45 @@ class Login extends React.Component {
             <>
                 <div className="centaur">
                     <div className="intermodal">
-                        <div className="logBlock z-depth-3">
-                            <h3>Log in</h3>
-                            <br /><br /><br />
-                            <form>
-                                <label htmlFor="email_inline">Email</label>
-                                <input id="email_inline" type="email" className="validate" onChange={y => this.setLoginEmail(y)} />
-                                <span className="helper-text" data-error="Please enter a valid email" data-success="right"></span>
-                                <br />
-                                <label htmlFor="passw1">password</label>
-                                <input type="password" id="passw1" name="passw1" onChange={a => this.setLoginPass(a)} />
-                                <br /><br /><br /><br />
-                                <button className="btn block green waves-effect waves-yellow" type="submit" name="action" onClick={d => {
-                                    this.loginSubmit(d);
-                                }}>Log in</button>
-                            </form>
+                        <div className="logBlock">
+                            <div className="login loginOpenDT z-depth-3">
+                                <h3>Log in</h3>
+                                <br /><br /><br />
+                                <form>
+                                    <label htmlFor="email_inline">Email</label>
+                                    <input id="email_inline" type="email" className="validate" onChange={y => this.setLoginEmail(y)} />
+                                    <span className="helper-text" data-error="Please enter a valid email" data-success="right"></span>
+                                    <br />
+                                    <label htmlFor="passw1">password</label>
+                                    <input type="password" id="passw1" name="passw1" onChange={a => this.setLoginPass(a)} />
+                                    <br /><br /><br /><br />
+                                    <button className="btn block green waves-effect waves-yellow" type="submit" name="action" onClick={d => {
+                                        this.loginSubmit(d);
+                                    }}>Log in</button>
+                                </form>
+                            </div>
+                            <div className=" z-depth-3">
+                                <h3>Register</h3>
+                                <form encType="multipart/form-data">
+                                    <label htmlFor="name">full name</label>
+                                    <input type="text" id="name" name="name" onChange={v => this.registerName(v)} />
+                                    <label htmlFor="email_inline2">Email</label>
+                                    <input id="email_inline2" type="email" className="validate" onChange={b => this.registerEmail(b)} />
+                                    <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
+                                    <br />
+                                    <label htmlFor="passw2">password</label>
+                                    <input type="password" id="passw2" name="passw2" className={this.state.invalid} onChange={n => this.registerPassword([n, false])} />
+                                    <label htmlFor="passwconfirm2">confirm password</label>
+                                    <input type="password" id="passwconfirm2" name="passwconfirm2" className={this.state.invalid} onChange={m => this.registerPassword([m, true])} />
+                                    <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
+                                    <br /><br />
+                                    <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
+                                        this.registerSubmit(qy);
+                                    }}>Submit<i className="material-icons right">send</i></button>
+                                </form>
+                            </div>
                         </div>
-                        <div className="logBlock z-depth-3">
-                            <h3>Register</h3>
-                            <form encType="multipart/form-data">
-                                <label htmlFor="name">full name</label>
-                                <input type="text" id="name" name="name" onChange={v => this.registerName(v)} />
-                                <label htmlFor="email_inline2">Email</label>
-                                <input id="email_inline2" type="email" className="validate" onChange={b => this.registerEmail(b)} />
-                                <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
-                                <br />
-                                <label htmlFor="passw2">password</label>
-                                <input type="password" id="passw2" name="passw2" className={this.state.invalid} onChange={n => this.registerPassword([n, false])} />
-                                <label htmlFor="passwconfirm2">confirm password</label>
-                                <input type="password" id="passwconfirm2" name="passwconfirm2" className={this.state.invalid} onChange={m => this.registerPassword([m, true])} />
-                                <span className="helper-text" data-error="Passwords must match and minimum 8 characters in length" data-success=""></span>
-                                <br /><br />
-                                <button className={"btn block green waves-effect waves-light"} type="submit" name="action" onClick={qy => {
-                                    this.registerSubmit(qy);
-                                }}>Submit<i className="material-icons right">send</i></button>
-                            </form>
-                        </div>
-                        {/* <div id="signinDrawer" className={state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
+                        {/* <div id="signinDrawer" className={this.state.drawer[0] + "0 drawer"} onClick={openDrawer.bind(this, 0)}>
                             <h4 className="logTitle">Register</h4>
                             <form encType="multipart/form-data">
                                 <label htmlFor="name">full name</label>
@@ -150,7 +153,7 @@ class Login extends React.Component {
                                 </button>
                             </form>
                         </div>
-                        <div id="loginDrawer" className={state.drawer[1] + "1 drawer"} onClick={openDrawer.bind(this, 1)}>
+                        <div id="loginDrawer" className={this.state.drawer[1] + "1 drawer"} onClick={openDrawer.bind(this, 1)}>
                             <h4 className="logTitle">Log in</h4>
                             <form>
                                 <label htmlFor="email_inline4">Email</label>

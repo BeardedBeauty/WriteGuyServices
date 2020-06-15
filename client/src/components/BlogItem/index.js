@@ -27,7 +27,7 @@ const BlogItem = ({ match }) => {
                     </div>
                     {wi && <img className="titleImg" src={wi} alt={ww} />}
                     <div className="internalHTML">
-                        <div className="buttons">
+                        {/* <div className="buttons">
                             <a href={"mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://write-guyservices.net" + match.url}>
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
                             </a>
@@ -40,7 +40,7 @@ const BlogItem = ({ match }) => {
                             <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons">
                                 <img className="shareButton" src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
                             </a>
-                        </div>
+                        </div> */}
                         <br />
                         {qm && <div dangerouslySetInnerHTML={{ __html: qm }} />}
                     </div>
