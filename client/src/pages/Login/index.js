@@ -36,7 +36,10 @@ class Login extends React.Component {
     loginSubmit = s => {
         s.preventDefault();
         api.getUser({ email: this.state.loginemail, password: this.state.loginpass }).then(res => {
-            if (res) { this.setState({ redirect: true }); }
+            if (res) {
+                this.setState({ redirect: true });
+                window.location.reload(false);
+            }
             // window.location.reload(false);
         });
     }
@@ -69,15 +72,17 @@ class Login extends React.Component {
         }
     }
 
-    auth = () => api.authUser().then(res => {
+    auth = async () => api.authUser().then(res => {
         if (res) {
-            this.setState({
-                redirect: true,
-                loading: false
-            });
-            window.location.reload(false);
+            this.setState({ loading: false, redirect: true });
         }
-        else { this.setState({ loading: false }); }
+        else {
+            const error = new Error(res.error);
+            throw error;
+        }
+    }).catch(err => {
+        console.error(err);
+        this.setState({ loading: false });
     });
 
     render() {
@@ -85,7 +90,7 @@ class Login extends React.Component {
             return null;
         }
         if (this.state.redirect) {
-            return <Redirect to="/home" />;
+            return <Redirect to="/" />;
         }
         if (!this.state.redirent && !this.state.loading) return (
             <>

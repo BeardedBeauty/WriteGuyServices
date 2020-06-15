@@ -1,5 +1,6 @@
 import React from "react";
 import api from "../../utils/api";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 
 class Profile extends React.Component {
@@ -10,7 +11,8 @@ class Profile extends React.Component {
             change: false,
             currentPass: "",
             newPass: "",
-            confirmPass: ""
+            confirmPass: "",
+            redirect: false
         }
     }
 
@@ -27,16 +29,18 @@ class Profile extends React.Component {
                 email: this.props.user.email,
                 current: this.state.currentPass,
                 new: this.state.newPass
-            })
+            });
         }
     }
 
-    // componentDidMount = () => console.log(document.cookie)
-
-    logOut = () => api.logOut()
+    logOut = () => api.logOut().then(() => {
+        window.location.reload(false);
+        this.setState({ redirect: true })
+    });
 
     render() {
-        return (
+        if (this.state.redirect) return <Redirect to="/" />;
+        else return (
             <>
                 <div className="centaur">
                     <div className="intermodal">

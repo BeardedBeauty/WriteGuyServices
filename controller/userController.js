@@ -9,6 +9,7 @@ module.exports = {
         db.Users.findOne({ email: req.body.email }, function (err, user) {
             user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
                 const jwtencoded = JWT.encode(user, TOKEN);
+                console.log(res.body)
                 result ? res.cookie("writeToken", jwtencoded, {
                     httpOnly: true,
                     // secure: true,

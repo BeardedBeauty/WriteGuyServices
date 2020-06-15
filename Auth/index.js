@@ -30,7 +30,7 @@ module.exports = {
         res.status(200).send({ message: 'Logged out' });
     },
     logIn: async (req, res, next) => {
-        console.log(req);
+
         next();
     }
 }

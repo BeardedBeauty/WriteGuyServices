@@ -17,7 +17,9 @@ class Book extends React.Component {
                     <div className="intermodal" >
                         <p>{"Hello, " + this.props.user.name}</p>
                         <div className="block">
-                            <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >select dates</button>
+                            <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >purchase 8 sessions</button>
+                            <br /><br />
+                            <a href=""><button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >book 30 min breakout session</button></a>
                         </div>
                     </div>
                 </div>
