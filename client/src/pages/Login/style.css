@@ -17,13 +17,30 @@ label.active {
     box-shadow: 0 1px 0 0 #000;
 }
 
+.pleaseLogin {
+    width: 100%;
+    border: 1px solid #fff569;
+    background-color: #fffcd3;
+    color: #4b481d;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
 .logBlock {
     display: block;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    height: 530px;
+    height: 600px;
     width: 600px;
+}
+
+.drawer {
+    transition: .2s;
+    overflow: hidden;
+    padding: 0px 20px 10px 20px;
 }
 
 .login {
@@ -36,6 +53,8 @@ label.active {
 
 .loginClosedDT {
     width: 100px;
+    background-color: #7c7c7c;
+    color: #ffffff;
 }
 
 .loginOpenDT {
@@ -61,6 +80,8 @@ label.active {
 
 .registerClosedDT {
     width: 100px;
+    background-color: #7c7c7c;
+    color: #ffffff;
 }
 
 .logMobile {
@@ -104,13 +125,6 @@ label.active {
 .open1 {
     overflow: auto;
     height: 290px;
-}
-
-.drawer {
-    transition: .3s;
-    padding: 0px 20px 10px 20px;
-    background-color: #e9e9e9;
-    z-index: 10;
 }
 
 button.block {
