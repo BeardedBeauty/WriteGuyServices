@@ -18,10 +18,9 @@ router.route("/")
 
 router.route("/passwordUpdate").put(user.updatePassword);
 
-// router.delete(":/id", auth, function (req, res, next) {
-//     console.log(req);
-//     user.remove;
-// });
+router.route("/delete").put(user.remove);
+
+router.route("/authdelete").put(user.manualAuth);
 // app.post('/authdelete', auth, function (req, res) {
 //     res.send('deleted?');
 //     console.log(req.body);

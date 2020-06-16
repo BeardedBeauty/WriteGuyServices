@@ -49,10 +49,17 @@ module.exports = {
     },
     remove: function (req, res) {
         console.log(req.body);
-        db.Users
-            .findById({ _id: req.body.id })
+        db.Users.findOne({ email: req.body.email })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+        res.clearCookie('writeToken');
+    },
+    manualAuth: function (req, res) {
+        db.Users.findOne({ email: req.body.email }, function (err, user) {
+            user ? bcrypt.compare(req.body.password, user.password, function (err, result) {
+                res.json(result)
+            }) : res.status(401).json("false");
+        }).catch(err => res.status(422).json(err));
     }
 };

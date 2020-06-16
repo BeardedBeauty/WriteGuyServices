@@ -13,7 +13,8 @@ class Profile extends React.Component {
             newPass: "",
             confirmPass: "",
             redirect: false,
-            delete: false
+            delete: false,
+            tryAgain: false,
         }
     }
 
@@ -41,7 +42,29 @@ class Profile extends React.Component {
 
     deleteForm = () => this.state.delete ? this.setState({ delete: false }) : this.setState({ delete: true });
 
-    deleteUser = () => { }
+    deleteUser = wx => {
+        wx.preventDefault();
+        api.manualAuth({
+            email: this.props.user.email,
+            password: this.state.currentPass
+        }).then(res => {
+            if (res.data) {
+                if (window.confirm(`Are you sure you want to delete your account, ${this.props.user.name}?`)) {
+                    api.deleteUser({
+                        email: this.props.user.email,
+                        password: this.state.currentPass
+                    }).then(res => {
+                        if (res) {
+                            window.location.reload(false);
+                            this.setState({ redirect: true });
+                        }
+                        else { this.setState({ tryAgain: true }) }
+                    });
+                }
+            }
+            else { this.setState({ tryAgain: true }); }
+        });
+    }
 
     render() {
         if (this.state.redirect) return <Redirect to="/" />;
@@ -49,6 +72,7 @@ class Profile extends React.Component {
             <>
                 <div className="centaur">
                     <div className="intermodal">
+                        {this.state.tryAgain && <div className="tryAgain">Sorry, your password was incorrect. Please try agian</div>}
                         <div className="userBlock z-depth-3">
                             <h4>{this.props.user.name}</h4>
                             <h6>{this.props.user.email}</h6>
@@ -60,7 +84,7 @@ class Profile extends React.Component {
                             <br /><br />
                             <button id="" className="btn red waves-effect waves-yellow" type="submit" name="action" onClick={this.deleteForm}>{!this.state.delete && "delete account"}{this.state.delete && "cancel delete"}</button>
                             <br /><br />
-                            {this.state.change && <>
+                            {this.state.change && !this.state.delete && <>
                                 <label htmlFor="current">Current password</label>
                                 <input type="password" id="current" name="current" onChange={n => this.currentPassword(n)} />
                                 <label htmlFor="passw2">New password</label>
@@ -69,11 +93,13 @@ class Profile extends React.Component {
                                 <input type="password" id="passwconfirm2" name="passwconfirm2" onChange={m => this.updatePassword([m, true])} />
                                 <button id="" className="btn orange waves-effect waves-light" type="submit" name="action" onClick={this.updateSubmit}>confirm change</button>
                             </>}
-                            {this.state.delete && <>
-                                <label htmlFor="current">Confirm password</label>
-                                <input type="password" id="current" name="current" onChange={n => this.currentPassword(n)} />
-                                <button id="" className="btn orange waves-effect waves-red" type="submit" name="action" onClick={this.deleteUser}>continue delete</button>
-                            </>}
+                            {this.state.delete &&
+                                <form encType="multipart/form-data">
+                                    <label htmlFor="current">Confirm password</label>
+                                    <input type="password" id="current" name="current" onChange={n => this.currentPassword(n)} />
+                                    <button id="" className="btn orange waves-effect waves-red" type="submit" name="action" onClick={wz => this.deleteUser(wz)}>continue delete</button>
+                                </form>
+                            }
                         </div>
                     </div>
                 </div>

@@ -12,13 +12,16 @@ export default {
         return axios.post("/api/users/", post).catch(err => console.log(err));
     },
     deleteUser: function (user) {
-        return axios.delete("/api/users/:" + user).catch(err => console.log(err));
+        return axios.put(`api/users/delete`, user).catch(err => console.log(err));
     },
     updatePassword: function (user) {
         return axios.put("/api/users/passwordUpdate", user).catch(err => console.log(err));
     },
     logOut: function () {
         return axios.get("api/users/logout").catch(err => console.log(err));
+    },
+    manualAuth: function (user) {
+        return axios.put("api/users/authdelete", user).catch(err => console.log(err));
     },
     //------------------------------------------------------- Blogs:
     getBlogs: function () {

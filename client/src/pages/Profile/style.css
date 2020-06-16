@@ -11,3 +11,14 @@
     padding: 20px;
     text-align: center;
 }
+
+.tryAgain {
+    width: 100%;
+    border: 1px solid #df3636;
+    background-color: #ffd3d3;
+    color: #6b1313;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
