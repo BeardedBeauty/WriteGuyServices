@@ -38,5 +38,8 @@ export default {
     },
     deleteBlog: function (id) {
         return axios.delete(`api/blogs/${id}`).catch(err => console.log(err));
+    },
+    recentBlog: function () {
+        return axios.get("api/blogs/recent").catch(err => console.log(err));
     }
 };

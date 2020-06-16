@@ -10,6 +10,8 @@ router.route("/")
     .put(blog.modBlog)
     .post(blog.create);
 
+router.route("/recent").get(blog.recent);
+
 router.route("/:id")
     .get(blog.findBlog)
     .delete(blog.deleteBlog);

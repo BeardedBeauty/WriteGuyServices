@@ -34,5 +34,8 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    recent: function (req, res) {
+        db.Blogs.find().sort({ _id: -1 }).then(dbModel => res.json(dbModel[0])).catch(err => res.status(422).json(err));
     }
 }
