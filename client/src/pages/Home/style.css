@@ -1,0 +1,22 @@
+.recentBlog {
+    width:80%;
+    height: 200px;
+    background-color: #fdfdfd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.recentBlogImage {
+    max-width: 50%;
+    float: left;
+}
+
+.readMore {
+    width: 80px;
+    height: 100%;
+    background-color: #2ea823;
+    color: #cdffc6;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+}
