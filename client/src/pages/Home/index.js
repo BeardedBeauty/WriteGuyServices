@@ -15,6 +15,7 @@ function Home() {
             <div className="showverflow right">
                 <img src={bless} alt="papabless" className="fillerimage" />
             </div>
+            <div className="coverItPlease"></div>
             <div className="centaur absolute">
                 <div className="intermodal">
                     <img src={bless} alt="papabless" className="papabless" />

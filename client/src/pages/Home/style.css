@@ -70,8 +70,21 @@ img.fillerimage {
     position: absolute;
 }
 
+.coverItPlease {
+    margin-top: 597px;
+    width: 100%;
+    height: 50px;
+    background-color: #d8d8d8;
+    float: left;
+    position: absolute;
+}
+
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
     img.fillerimage {
         display: none;
+    }
+
+    .coverItPlease {
+        visibility: hidden;
     }
 }
