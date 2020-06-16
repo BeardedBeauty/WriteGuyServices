@@ -1,22 +1,77 @@
 .recentBlog {
-    width:80%;
+    width: 100%;
     height: 200px;
     background-color: #fdfdfd;
     border-radius: 6px;
     overflow: hidden;
+    margin-top: 50px;
 }
 
 .recentBlogImage {
-    max-width: 50%;
-    float: left;
+    max-height: 100%;
+    width: auto;
 }
 
 .readMore {
-    width: 80px;
-    height: 100%;
+    width: 10%;
+    height: 200px;
     background-color: #2ea823;
     color: #cdffc6;
     float: right;
     text-align: center;
     cursor: pointer;
+    padding-top: 85px;
+    transition: .2s;
+    margin-right: 0;
+    margin-left: 50px;
+}
+
+.readMore:hover {
+    background-color: #12c41b;
+    color: #185e16;
+}
+
+img.papabless {
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+img.fillerimage {
+    max-width: 100%;
+    height: auto;
+    z-index: 0;
+    -webkit-filter: blur(10px) !important;
+    -moz-filter   : blur(10px) !important;
+    -o-filter     : blur(10px) !important;
+    -ms-filter    : blur(10px) !important;
+    filter        : blur(10px) !important;
+}
+
+.left {
+    float: left;
+    margin-bottom: -100%;
+}
+
+.right {
+    float: right;
+}
+
+.showverflow {
+    width: 1000px;
+}
+
+#blogTitle {
+    float: right;
+    text-align: center;
+}
+
+.absolute {
+    position: absolute;
+}
+
+@media screen and (max-width: 999px) {/*and (min-width: 64){*/
+    img.fillerimage {
+        display: none;
+    }
 }
