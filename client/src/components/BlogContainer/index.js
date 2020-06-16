@@ -6,7 +6,7 @@ function BlogContainer(props) {
     return (
         <>
             <div className="blogClosed z-depth-3" id={props.id}>
-                <img className="blogCoverImg" src={props.image} />
+                <img className="blogCoverImg" src={props.image} alt="" />
                 <p className="created">{props.created}</p>
                 <Link to={`/blog/${props.id}`}>
                     <div className="moreContainer">

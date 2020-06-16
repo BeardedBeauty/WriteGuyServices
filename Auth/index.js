@@ -25,7 +25,6 @@ module.exports = {
         }
     },
     logOut: async (req, res) => {
-        console.log(res)
         res.clearCookie('writeToken');
         res.status(200).send({ message: 'Logged out' });
     },

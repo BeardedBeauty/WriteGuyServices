@@ -66,17 +66,15 @@ class Login extends React.Component {
             this.setState({ invalid: "valid" });
             console.log(this.state.DTdrawer)
             if (j !== "" && l !== "" && qr !== "" && x === qr) {
-                this.setState({
-                    DTdrawer: ["loginOpenDT z-depth-3", "registerClosedDT"],
-                    drawerState: true,
-                    pleaseLogin: true
-                });
                 api.newUser({
                     name: j,
                     email: l,
                     password: qr,
                     zone: moment.tz.guess()
-                });
+                }).then(async () => {
+                    this.setState({ pleaseLogin: true });
+                    this.DTdrawers(true);
+                })
             }
         }
     }

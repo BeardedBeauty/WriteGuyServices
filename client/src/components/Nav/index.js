@@ -24,7 +24,7 @@ function Nav() {
                         {user.name && <li><Link to="/profile">{user.name}</Link></li>}
                         {user.admin && <li><Link to="/mod">∆ EDIT</Link></li>}
                     </ul>
-                    <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">clear_all</i></a>
+                    <a data-target="slide-out" className="sidenav-trigger"><i className="material-icons">clear_all</i></a>
                 </div>
             </div>
         </nav>

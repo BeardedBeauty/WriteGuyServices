@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import "materialize-css";
-import M from "materialize-css";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Slider() {
     const [user, change] = useState({ name: "Not logged in", email: "" });

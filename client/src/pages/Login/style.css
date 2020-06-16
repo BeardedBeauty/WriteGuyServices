@@ -53,8 +53,10 @@ label.active {
 
 .loginClosedDT {
     width: 100px;
-    background-color: #7c7c7c;
-    color: #ffffff;
+    background-color: #2ea823;
+    color: #cdffc6;
+    cursor: pointer;
+    padding-top: 45%;
 }
 
 .loginOpenDT {
@@ -80,8 +82,10 @@ label.active {
 
 .registerClosedDT {
     width: 100px;
-    background-color: #7c7c7c;
-    color: #ffffff;
+    background-color: #2ea823;
+    color: #cdffc6;
+    cursor: pointer;
+    padding-top: 45%;
 }
 
 .logMobile {

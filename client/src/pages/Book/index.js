@@ -19,7 +19,7 @@ class Book extends React.Component {
                         <div className="block">
                             <button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >purchase 8 sessions</button>
                             <br /><br />
-                            <a href=""><button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >book 30 min breakout session</button></a>
+                            {/* <a href=""><button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >book 30 min breakout session</button></a> */}
                         </div>
                     </div>
                 </div>

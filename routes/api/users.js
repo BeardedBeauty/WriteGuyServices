@@ -10,9 +10,7 @@ router.get("/", auth.auth, function (req, res, next) {
     res.json(req.user);
 });
 
-router.get("/logout", auth.logOut, function (req, res, next) {
-    console.log(res.cookies.token)
-});
+router.get("/logout", auth.logOut);
 
 router.route("/")
     .post(user.create)
