@@ -11,3 +11,9 @@
 .sidenav-trigger {
     cursor: pointer;
 }
+
+img.logo {
+    max-height: 90px;
+    height: auto;
+    margin-top: -20px;
+}

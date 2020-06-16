@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../../utils/api";
 import "./style.css";
+import logo from "../../assets/wgs.png";
 
 function Nav() {
     const [user, change] = useState({ name: false, email: false, admin: false });
@@ -10,7 +11,9 @@ function Nav() {
         <nav>
             <div className="nav-wrapper teal darken-4 z-depth-5">
                 <div className="container">
-                    <Link to="/" className="brand-logo">Write Guy</Link>
+                    <Link to="/" className="brand-logo">
+                        <img src={logo} alt="Writeguyservices" className="logo" />
+                    </Link>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         {/* <li>
                             <Link to="/book">
