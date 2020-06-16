@@ -19,7 +19,8 @@ class Login extends React.Component {
             loading: true,
             DTdrawer: ["loginOpenDT z-depth-3", "registerClosedDT"],
             drawerState: true,
-            pleaseLogin: false
+            pleaseLogin: false,
+            tryAgain: false
         }
     }
 
@@ -43,6 +44,7 @@ class Login extends React.Component {
                 this.setState({ redirect: true });
                 window.location.reload(false);
             }
+            else this.setState({ tryAgain: true });
             // window.location.reload(false);
         });
     }
@@ -110,6 +112,7 @@ class Login extends React.Component {
                 <div className="centaur">
                     <div className="intermodal">
                         {this.state.pleaseLogin && <div className="pleaseLogin">Thank you for registering. Please log in to continue</div>}
+                        {this.state.tryAgain && <div className="tryAgain">Invalid login, please try again</div>}
                         <div className="logBlock">
                             <div className={`drawer login ${this.state.DTdrawer[0]}`} onClick={this.DTdrawers.bind(this, true)}>
                                 {!this.state.drawerState && <p>Log in</p>}
@@ -119,7 +122,7 @@ class Login extends React.Component {
                                     <form>
                                         <label htmlFor="email_inline">Email</label>
                                         <input id="email_inline" type="email" className="validate" onChange={y => this.setLoginEmail(y)} />
-                                        <span className="helper-text" data-error="Please enter a valid email" data-success="right"></span>
+                                        <span className="helper-text" data-error="Please enter a valid email" data-success="Email valid"></span>
                                         <br />
                                         <label htmlFor="passw1">password</label>
                                         <input type="password" id="passw1" name="passw1" onChange={a => this.setLoginPass(a)} />

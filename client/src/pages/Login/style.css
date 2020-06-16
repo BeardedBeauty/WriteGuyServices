@@ -17,6 +17,17 @@ label.active {
     box-shadow: 0 1px 0 0 #000;
 }
 
+.tryAgain {
+    width: 100%;
+    border: 1px solid #df3636;
+    background-color: #ffd3d3;
+    color: #6b1313;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
 .pleaseLogin {
     width: 100%;
     border: 1px solid #fff569;
