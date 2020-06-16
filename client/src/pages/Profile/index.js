@@ -12,7 +12,8 @@ class Profile extends React.Component {
             currentPass: "",
             newPass: "",
             confirmPass: "",
-            redirect: false
+            redirect: false,
+            delete: false
         }
     }
 
@@ -38,6 +39,10 @@ class Profile extends React.Component {
         this.setState({ redirect: true })
     });
 
+    deleteForm = () => this.state.delete ? this.setState({ delete: false }) : this.setState({ delete: true });
+
+    deleteUser = () => { }
+
     render() {
         if (this.state.redirect) return <Redirect to="/" />;
         else return (
@@ -53,7 +58,7 @@ class Profile extends React.Component {
                             <br /><br />
                             <a href="mailto:casey@write-guyservices.net"><button id="" className="btn blue waves-effect waves-green" type="submit" name="action" >contact casey ochs</button></a>
                             <br /><br />
-                            <button id="" className="btn red waves-effect waves-yellow" type="submit" name="action" >delete account</button>
+                            <button id="" className="btn red waves-effect waves-yellow" type="submit" name="action" onClick={this.deleteForm}>{!this.state.delete && "delete account"}{this.state.delete && "cancel delete"}</button>
                             <br /><br />
                             {this.state.change && <>
                                 <label htmlFor="current">Current password</label>
@@ -63,6 +68,11 @@ class Profile extends React.Component {
                                 <label htmlFor="passwconfirm2">Confirm new password</label>
                                 <input type="password" id="passwconfirm2" name="passwconfirm2" onChange={m => this.updatePassword([m, true])} />
                                 <button id="" className="btn orange waves-effect waves-light" type="submit" name="action" onClick={this.updateSubmit}>confirm change</button>
+                            </>}
+                            {this.state.delete && <>
+                                <label htmlFor="current">Confirm password</label>
+                                <input type="password" id="current" name="current" onChange={n => this.currentPassword(n)} />
+                                <button id="" className="btn orange waves-effect waves-red" type="submit" name="action" onClick={this.deleteUser}>continue delete</button>
                             </>}
                         </div>
                     </div>
