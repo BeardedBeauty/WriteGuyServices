@@ -110,36 +110,23 @@ label.active {
 #signinDrawer {
     margin-top: 20px;
     display: none;
-    float: none;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 #loginDrawer {
     border-top: 2px solid #646464;
     display: none;
-    float: none;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
-.closed0, .closed1 {
+.Mdrawer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s;
     overflow: hidden;
-    height: 75px;
-}
-
-.open0 {
-    overflow: auto;
-    height: 440px;/* #blazeit */
-}
-
-.open1 {
-    overflow: auto;
-    height: 290px;
 }
 
 button.block {
@@ -155,5 +142,41 @@ button.block {
 
     .logMobile, #signinDrawer, #loginDrawer {
         display: block;
+    }
+
+    .loginClosedDT {
+        width: 80%;
+        background-color: #2ea823;
+        color: #cdffc6;
+        cursor: pointer;
+        padding: 20px;
+        height: 100px;
+        text-align: center;
+    }
+    
+    .loginOpenDT {
+        width: 80%;
+        background-color: #ffffff;
+        text-align: center;
+        padding: 10px 10px 20px 10px;
+        height: 450px;
+    }
+
+    .registerOpenDT {
+        width: 80%;
+        background-color: #ffffff;
+        text-align: center;
+        padding: 5px 10px 20px 10px;
+        height: 450px;
+    }
+    
+    .registerClosedDT {
+        width: 80%;
+        background-color: #2ea823;
+        color: #cdffc6;
+        cursor: pointer;
+        padding: 20px;
+        height: 100px;
+        text-align: center;
     }
 }
