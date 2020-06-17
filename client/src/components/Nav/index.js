@@ -23,6 +23,7 @@ function Nav() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/blog">Blog</Link></li>
+                        <li><a className="" href="https://www.linkedin.com/in/casey-richard-ochs-write-guyservices/">Linkedin</a></li>
                         {!user.email && <li><Link to="/login">Login</Link></li>}
                         {user.name && <li><Link to="/profile">{user.name}</Link></li>}
                         {user.admin && <li><Link to="/mod">∆ EDIT</Link></li>}

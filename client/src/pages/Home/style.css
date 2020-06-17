@@ -11,20 +11,20 @@
 .recentBlogImage {
     max-height: 100%;
     width: auto;
+    float: left;
 }
 
 .readMore {
-    width: 10%;
-    height: 200px;
     background-color: #2ea823;
     color: #cdffc6;
-    float: right;
+    float: left;
     text-align: center;
     cursor: pointer;
     padding-top: 85px;
     transition: .2s;
-    margin-right: 0;
-    margin-left: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .readMore:hover {
@@ -62,9 +62,11 @@ img.fillerimage {
     width: 1000px;
 }
 
-#blogTitle {
-    float: right;
+.blogTitle {
     text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .absolute {
@@ -100,11 +102,23 @@ img.fillerimage {
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
-    img.fillerimage {
+    img.fillerimage, img.recentBlogImage, .coverItPlease {
         display: none;
     }
 
-    .coverItPlease {
-        visibility: hidden;
+    .recentBlog, #bio, .video{
+        display: block;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .readMore {
+        width: 15%;
+    }
+
+    .blogTitle {
+        float: none;
     }
 }

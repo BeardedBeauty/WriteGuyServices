@@ -22,14 +22,14 @@ function Home() {
                     <img src={bless} alt="papabless" className="papabless" />
                     <div className="recentBlog">
                         <img src={blog.image} alt="recentBlogImage" className="recentBlogImage" />
+                        <div className="blogTitle">
+                            <h6 className="">Newest article:</h6>
+                            <h5 className="title">{blog.title}</h5>
+                            <p>{blog.created}</p>
+                        </div>
                         <Link to={`/blog/${blog._id}`}>
                             <div className="readMore">read</div>
                         </Link>
-                        <div id="blogTitle">
-                            <h6 id="title">Newest article:</h6>
-                            <h5 id="title">{blog.title}</h5>
-                            <p>{blog.created}</p>
-                        </div>
                     </div>
                     <Link to={"/about"}>
                         <div id="bio">
@@ -39,7 +39,7 @@ function Home() {
                         </div>
                     </Link>
                     <div className="video">
-                        <video controls="controls" width="480" name="welcome" src={mov}></video>
+                        <video controls="controls" width="320" name="welcome" src={mov}></video>
                     </div>
                 </div>
             </div>
