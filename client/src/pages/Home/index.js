@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import api from "../../utils/api";
 import "./style.css";
 import bless from "../../assets/papabless.JPG";
+import mov from "../../assets/Welcome.mov";
 
 function Home() {
     const [blog, change] = useState({});
@@ -25,8 +26,20 @@ function Home() {
                             <div className="readMore">read</div>
                         </Link>
                         <div id="blogTitle">
+                            <h6 id="title">Newest article:</h6>
                             <h5 id="title">{blog.title}</h5>
+                            <p>{blog.created}</p>
                         </div>
+                    </div>
+                    <Link to={"/about"}>
+                        <div id="bio">
+                            <h4>im a enlish teacher with multiple years of expberience,</h4>
+                            <br />
+                            <h5>find out what i do…</h5>
+                        </div>
+                    </Link>
+                    <div className="video">
+                        <video controls="controls" width="480" name="welcome" src={mov}></video>
                     </div>
                 </div>
             </div>

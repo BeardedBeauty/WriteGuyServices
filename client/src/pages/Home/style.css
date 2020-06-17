@@ -5,6 +5,7 @@
     border-radius: 6px;
     overflow: hidden;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .recentBlogImage {
@@ -77,6 +78,25 @@ img.fillerimage {
     background-color: #d8d8d8;
     float: left;
     position: absolute;
+}
+
+#bio {
+    width: 475px;
+    height: 320px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #2ea823;
+    color: #90ff95;
+    padding: 40px;
+    transition: .2s;
+    cursor: pointer;
+    float: left;
+    margin-right: 40px;
+}
+
+#bio:hover {
+    background-color: #65d46b;
+    color: #004e3b;
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
