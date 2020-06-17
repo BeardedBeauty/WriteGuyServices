@@ -17,7 +17,7 @@
 .readMore {
     background-color: #2ea823;
     color: #cdffc6;
-    float: left;
+    float: right;
     text-align: center;
     cursor: pointer;
     padding-top: 85px;
@@ -25,6 +25,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height: 100%;
+    width: 10%;
 }
 
 .readMore:hover {
@@ -64,9 +66,26 @@ img.fillerimage {
 
 .blogTitle {
     text-align: center;
+    width: 60%;
+    float: left;
+    padding: 15px;
+}
+
+.video {
     display: block;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+}
+
+#videoBox {
+    text-align: center;
+    width: 475px;
+    float: right;
+    /* background-color: #fdfdfd; */
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #2ea823;
 }
 
 .absolute {
@@ -93,12 +112,18 @@ img.fillerimage {
     transition: .2s;
     cursor: pointer;
     float: left;
-    margin-right: 40px;
 }
 
 #bio:hover {
     background-color: #65d46b;
     color: #004e3b;
+}
+
+.green1 {
+    margin-top: -16px;
+    width: 100%;
+    color: #004e3b;
+    padding: 6px;
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
@@ -115,10 +140,18 @@ img.fillerimage {
     }
 
     .readMore {
-        width: 15%;
+        width: 25%;
     }
 
     .blogTitle {
+        width: 75%;
+    }
+
+    #videoBox {
+        width: 100%;
         float: none;
+        margin-top: 20px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
 }

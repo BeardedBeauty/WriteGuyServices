@@ -33,13 +33,18 @@ function Home() {
                     </div>
                     <Link to={"/about"}>
                         <div id="bio">
-                            <h4>im a enlish teacher with multiple years of expberience,</h4>
+                            <h4>im a enlish teacher with multiple years of expberience'</h4>
                             <br />
                             <h5>find out what i do…</h5>
                         </div>
                     </Link>
-                    <div className="video">
-                        <video controls="controls" width="320" name="welcome" src={mov}></video>
+                    <div id="videoBox">
+                        <div className="green1">
+                            <h5>Video: What to expect from my 30 minute strategy session</h5>
+                        </div>
+                        <div className="video">
+                            <video controls="controls" width="360" name="welcome" src={mov}></video>
+                        </div>
                     </div>
                 </div>
             </div>
