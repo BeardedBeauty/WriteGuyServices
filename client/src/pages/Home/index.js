@@ -28,7 +28,7 @@ function Home() {
                             <p>{blog.created}</p>
                         </div>
                         <Link to={`/blog/${blog._id}`}>
-                            <div className="readMore">read</div>
+                            <div className="readMore"><h6>Read</h6></div>
                         </Link>
                     </div>
                     <Link to={"/about"}>

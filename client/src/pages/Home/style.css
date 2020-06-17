@@ -15,8 +15,8 @@
 }
 
 .readMore {
-    background-color: #2ea823;
-    color: #cdffc6;
+    background-color: #0a4630;
+    color: #d6cd50;
     float: right;
     text-align: center;
     cursor: pointer;
@@ -85,7 +85,7 @@ img.fillerimage {
     /* background-color: #fdfdfd; */
     border-radius: 6px;
     overflow: hidden;
-    background-color: #2ea823;
+    background-color: #0a4630;
 }
 
 .absolute {
@@ -96,7 +96,7 @@ img.fillerimage {
     margin-top: 597px;
     width: 100%;
     height: 50px;
-    background-color: #d8d8d8;
+    background-color: #e0d9c8;
     float: left;
     position: absolute;
 }
@@ -106,8 +106,8 @@ img.fillerimage {
     height: 320px;
     text-align: center;
     border-radius: 6px;
-    background-color: #2ea823;
-    color: #90ff95;
+    background-color: #0a4630;
+    color: #d6cd50;
     padding: 40px;
     transition: .2s;
     cursor: pointer;
@@ -115,14 +115,14 @@ img.fillerimage {
 }
 
 #bio:hover {
-    background-color: #65d46b;
-    color: #004e3b;
+    background-color: #4fc055;
+    color: #043126;
 }
 
 .green1 {
     margin-top: -16px;
     width: 100%;
-    color: #004e3b;
+    color: #cfd1b7;
     padding: 6px;
 }
 
