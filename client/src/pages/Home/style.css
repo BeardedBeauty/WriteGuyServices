@@ -16,11 +16,11 @@
 
 .readMore {
     background-color: #0a4630;
-    color: #d6cd50;
+    color: #cfd1b7;
     float: right;
     text-align: center;
     cursor: pointer;
-    padding-top: 85px;
+    padding-top: 80px;
     transition: .2s;
     display: block;
     margin-left: auto;
@@ -30,7 +30,7 @@
 }
 
 .readMore:hover {
-    background-color: #12c41b;
+    background-color: #9ec983;
     color: #185e16;
 }
 
@@ -107,7 +107,7 @@ img.fillerimage {
     text-align: center;
     border-radius: 6px;
     background-color: #0a4630;
-    color: #d6cd50;
+    color: #cfd1b7;
     padding: 40px;
     transition: .2s;
     cursor: pointer;
@@ -115,7 +115,7 @@ img.fillerimage {
 }
 
 #bio:hover {
-    background-color: #4fc055;
+    background-color: #9ec983;
     color: #043126;
 }
 
