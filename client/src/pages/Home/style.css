@@ -126,6 +126,11 @@ img.fillerimage {
     padding: 6px;
 }
 
+#filler {
+    height: 1300px;
+    width: 100%;
+}
+
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
     img.fillerimage, img.recentBlogImage, .coverItPlease {
         display: none;

@@ -10,20 +10,20 @@ function Footer() {
                 <div class="container">
                     <div class="row">
                         <img src={logo} alt="Writeguyservices" className="logo" />
+                    </div>
+                    <div className="row">
                         <div class="col s12 m8 l8">
-                            <h5 class="white-text">Task Master Team</h5>
+                            <h5 class="white-text">Contact me</h5>
                             <ul>
-                                <li><a class="white-text" href="">Peter</a></li>
-                                <li><a class="white-text" href="">Ryan 2</a></li>
-                                <li><a class="white-text" href="">John</a></li>
-                                <li><a class="white-text" href="">Jake</a></li>
+                                <li><a href="mailto:casey@write-guyservices.net">Email</a></li>
+                                <li><a className="" href="https://www.linkedin.com/in/casey-richard-ochs-write-guyservices/">Linkedin</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-copyright">
                     <div class="container">
-                        <a class="brown-text text-lighten-3" href="http://materializecss.com">© 2020 Oakware Web Services</a>
+                        <p>© 2020 Write Guy Services</p>
                     </div>
                 </div>
             </footer>
