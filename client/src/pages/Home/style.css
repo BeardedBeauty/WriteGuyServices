@@ -1,11 +1,11 @@
 #slogan {
-    width: 500px;
-    height: 240px;
-    margin-top: -550px;
+    height: 180px;
+    width: 410px;
+    margin-top: -510px;
     margin-bottom: 200px;
-    margin-left: 470px;
+    margin-left: 520px;
     position: absolute;
-    background-color: #000000c5;
+    background-color: #1f1508c5;
     border-radius: 16px;
     -webkit-filter: blur(10px) !important;
     -moz-filter   : blur(10px) !important;
@@ -16,15 +16,15 @@
 
 p.right {
     text-align: center;
-    font-size: 34px;
+    font-size: 28px;
     color: #cfd1b7;
-    width: 500px;
-    margin-top: -550px;
+    width: 390px;
+    margin-top: -500px;
     margin-bottom: 200px;
-    margin-left: 470px;
+    margin-left: 530px;
     position: absolute;
     line-height: 1.4;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-style: normal; font-variant: normal; font-weight: bold;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; font-style: normal; font-variant: normal; font-weight: none;
     padding: 0%;
 }
 
