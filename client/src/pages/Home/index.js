@@ -20,6 +20,8 @@ function Home() {
             <div className="centaur absolute">
                 <div className="intermodal">
                     <img src={bless} alt="papabless" className="papabless" />
+                    <div id="slogan"></div>
+                    <p className="right">Helping Spanish speaking banking executives improve job performance with advanced English communication skills</p>
                     <div className="recentBlog">
                         <img src={blog.image} alt="recentBlogImage" className="recentBlogImage" />
                         <div className="blogTitle">
@@ -33,9 +35,9 @@ function Home() {
                     </div>
                     <Link to={"/about"}>
                         <div id="bio">
-                            <h4>im a enlish teacher with multiple years of expberience'</h4>
+                            <h4>I'm an ESL teacher specializing in the financial industry</h4>
                             <br />
-                            <h5>find out what i do…</h5>
+                            <h5>find out more…</h5>
                         </div>
                     </Link>
                     <div id="videoBox">
