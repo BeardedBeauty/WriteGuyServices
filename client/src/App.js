@@ -21,7 +21,6 @@ import "materialize-css";
 import M from "materialize-css";
 import './App.css';
 import Footer from './components/Footer';
-// import api from "./utils/api";
 
 class App extends React.Component {
     constructor(props) {
