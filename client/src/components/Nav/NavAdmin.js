@@ -6,7 +6,7 @@ import "./style.css";
 function NavAdmin() {
     return (
         <nav>
-            <div className="nav-wrapper blue darken-4 z-depth-5">
+            <div className="nav-wrapper blue darken-4 z-depth-5 navmin">
                 <div className="container">
                     <ul>
                         <li><Link to="/mod">Edit About</Link></li>

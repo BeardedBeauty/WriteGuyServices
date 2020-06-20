@@ -26,8 +26,15 @@ class Login extends React.Component {
 
     componentDidMount = () => this.auth();
 
-    setLoginEmail = wf => this.setState({ loginemail: wf.target.value });
-    setLoginPass = wg => this.setState({ loginpass: wg.target.value });
+    setLoginEmail = wf => this.setState({
+        loginemail: wf.target.value,
+        tryAgain: false
+    });
+
+    setLoginPass = wg => this.setState({
+        loginpass: wg.target.value,
+        tryAgain: false
+    });
 
     registerName = wh => this.setState({ registername: wh.target.value });
     registerEmail = wj => this.setState({ registeremail: wj.target.value });

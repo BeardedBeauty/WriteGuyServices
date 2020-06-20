@@ -12,9 +12,9 @@
     cursor: pointer;
 }
 
-.teal {
-    z-index: 10;
-}
+.teal { z-index: 10; }
+
+.navmin { z-index: 11; }
 
 img.logo {
     max-height: 90px;
