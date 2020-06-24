@@ -7,17 +7,17 @@
     position: absolute;
     background-color: #1f1508c5;
     border-radius: 16px;
-    -webkit-filter: blur(10px) !important;
-    -moz-filter   : blur(10px) !important;
-    -o-filter     : blur(10px) !important;
-    -ms-filter    : blur(10px) !important;
-    filter        : blur(10px) !important;
+    -webkit-filter: blur(1px) !important;
+    -moz-filter   : blur(1px) !important;
+    -o-filter     : blur(1px) !important;
+    -ms-filter    : blur(1px) !important;
+    filter        : blur(1px) !important;
 }
 
 p.right {
     text-align: center;
     font-size: 28px;
-    color: #cfd1b7;
+    color: #ffffff;
     width: 390px;
     margin-top: -500px;
     margin-bottom: 200px;
@@ -88,6 +88,10 @@ img.fillerimage {
 
 .right {
     float: right;
+}
+
+p.right {
+    color: #d4e7c8;
 }
 
 .showverflow {
@@ -162,7 +166,7 @@ img.fillerimage {
 }
 
 @media screen and (max-width: 999px) {/*and (min-width: 64){*/
-    img.fillerimage, img.recentBlogImage, .coverItPlease, #slogan, h4.right {
+    img.fillerimage, img.recentBlogImage, .coverItPlease, #slogan, p.right {
         display: none;
     }
 
@@ -188,5 +192,15 @@ img.fillerimage {
         margin-top: 20px;
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
+    }
+
+    #filler {
+        height: 1600px;
+    }
+}
+
+@media screen and (max-width: 799px) and (min-width: 599px) {
+    #filler {
+        height: 1450px;
     }
 }
