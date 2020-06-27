@@ -130,7 +130,7 @@ p.right {
     margin-top: 597px;
     width: 100%;
     height: 50px;
-    background-color: #e0d9c8;
+    background-color: #f1efe7;
     float: left;
     position: absolute;
 }
@@ -165,37 +165,45 @@ p.right {
     width: 100%;
 }
 
-@media screen and (max-width: 999px) {/*and (min-width: 64){*/
-    img.fillerimage, img.recentBlogImage, .coverItPlease, #slogan, p.right {
-        display: none;
-    }
+@media screen and (max-width: 999px) {
+img.fillerimage, img.recentBlogImage, .coverItPlease, #slogan, p.right {
+    display: none;
+}
 
-    .recentBlog, #bio, .video{
-        display: block;
-        width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-        float: none;
-    }
+.recentBlog, #bio, .video{
+    display: block;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
 
-    .readMore {
-        width: 25%;
-    }
+.readMore {
+    width: 25%;
+}
 
-    .blogTitle {
-        width: 75%;
-    }
+.blogTitle {
+    width: 75%;
+}
 
-    #videoBox {
-        width: 100%;
-        float: none;
-        margin-top: 20px;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-    }
+#videoBox {
+    width: 100%;
+    float: none;
+    margin-top: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+}
 
+@media screen and (max-width: 999px) and (min-width: 900px){
     #filler {
         height: 1600px;
+    }
+}
+
+@media screen and (max-width: 899px) and (min-width: 800px) {
+    #filler {
+        height: 1500px;
     }
 }
 
